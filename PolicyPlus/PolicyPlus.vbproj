@@ -293,6 +293,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GpoBackupManager.vb" />
+    <Compile Include="GpoValidation.vb" />
     <Compile Include="GpoWizard.vb">
       <SubType>Form</SubType>
     </Compile>

@@ -1,5 +1,6 @@
 Imports System.ComponentModel
 Imports System.Drawing
+Imports System.Text
 Imports System.Windows.Forms
 
 Public Class GpoWizard
@@ -12,6 +13,7 @@ Public Class GpoWizard
     Private TxtDetails As TextBox
     Private BtnBackup As Button
     Private BtnRestore As Button
+    Private BtnValidate As Button
     Private BtnClose As Button
     Private LblStatus As Label
     Private BgWorker As BackgroundWorker
@@ -34,9 +36,10 @@ Public Class GpoWizard
 
         BtnBackup = New Button() With {.Left = 340, .Top = 320, .Width = 100, .Text = "Backup", .Enabled = False}
         BtnRestore = New Button() With {.Left = 450, .Top = 320, .Width = 100, .Text = "Restaurar", .Enabled = False}
+        BtnValidate = New Button() With {.Left = 560, .Top = 320, .Width = 120, .Text = "Validar/Afetados", .Enabled = False}
         BtnClose = New Button() With {.Left = 580, .Top = 360, .Width = 100, .Text = "Fechar"}
 
-        Me.Controls.AddRange(New Control() {TxtDomain, BtnRefresh, LblStatus, LstGpos, TxtPath, TxtDetails, BtnBackup, BtnRestore, BtnClose})
+        Me.Controls.AddRange(New Control() {TxtDomain, BtnRefresh, LblStatus, LstGpos, TxtPath, TxtDetails, BtnBackup, BtnRestore, BtnValidate, BtnClose})
 
         BgWorker = New BackgroundWorker()
         BgWorker.WorkerSupportsCancellation = False
@@ -47,6 +50,7 @@ Public Class GpoWizard
         AddHandler LstGpos.SelectedIndexChanged, AddressOf LstGpos_SelectedIndexChanged
         AddHandler BtnBackup.Click, AddressOf BtnBackup_Click
         AddHandler BtnRestore.Click, AddressOf BtnRestore_Click
+        AddHandler BtnValidate.Click, AddressOf BtnValidate_Click
         AddHandler BtnClose.Click, Sub(s, e) Me.Close()
 
         TxtDomain.Text = AdGpoManager.GetCurrentDomain()
@@ -98,11 +102,13 @@ Public Class GpoWizard
             TxtDetails.Text = g.GetDetailedInfo()
             BtnBackup.Enabled = g.IsAccessible
             BtnRestore.Enabled = False
+            BtnValidate.Enabled = g.IsAccessible
         Else
             TxtPath.Text = ""
             TxtDetails.Text = ""
             BtnBackup.Enabled = False
             BtnRestore.Enabled = False
+            BtnValidate.Enabled = False
         End If
     End Sub
 
@@ -136,5 +142,60 @@ Public Class GpoWizard
                 End Try
             End If
         End Using
+    End Sub
+
+    Private Sub BtnValidate_Click(sender As Object, e As EventArgs)
+        If LstGpos.SelectedIndex < 0 Then Return
+        Dim g = DirectCast(LstGpos.SelectedItem, GpoInfo)
+
+        Dim issues = GpoValidation.ValidateGpoStructure(g)
+        Dim links = New List(Of String)
+        Dim computers = New List(Of String)
+
+        Try
+            links = GpoValidation.GetGpoLinks(g.Domain, g.Guid)
+        Catch ex As Exception
+            issues.Add("Falha ao consultar vínculos (gPLink) no AD: " & ex.Message)
+        End Try
+
+        Try
+            computers = GpoValidation.GetComputersUnderOus(g.Domain, links)
+        Catch ex As Exception
+            issues.Add("Falha ao listar computadores nas OUs vinculadas: " & ex.Message)
+        End Try
+
+        Dim sb As New StringBuilder()
+        sb.AppendLine("Validação do GPO")
+        sb.AppendLine("================")
+        sb.AppendLine("Nome: " & g.DisplayName)
+        sb.AppendLine("GUID: " & g.Guid)
+        sb.AppendLine("SYSVOL: " & g.FileSystemPath)
+        sb.AppendLine()
+
+        If issues.Count = 0 Then
+            sb.AppendLine("Estrutura: OK")
+        Else
+            sb.AppendLine("Problemas encontrados:")
+            For Each it In issues
+                sb.AppendLine("- " & it)
+            Next
+        End If
+
+        sb.AppendLine()
+        sb.AppendLine("Vínculos (OUs/Containers) encontrados: " & links.Count)
+        For Each dn In links.Take(100)
+            sb.AppendLine("- " & dn)
+        Next
+        If links.Count > 100 Then sb.AppendLine("... (mais " & (links.Count - 100) & ")")
+
+        sb.AppendLine()
+        sb.AppendLine("Computadores potencialmente afetados (estimativa): " & computers.Count)
+        For Each c In computers.Take(200)
+            sb.AppendLine("- " & c)
+        Next
+        If computers.Count > 200 Then sb.AppendLine("... (mais " & (computers.Count - 200) & ")")
+
+        TxtDetails.Text = sb.ToString()
+        MessageBox.Show("Validação concluída. Veja os detalhes no painel à direita.", "Validador de GPO", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class
