@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Policy Plus")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Policy Plus")>
-<Assembly: AssemblyCopyright("Copyright © Ben Nordick 2016-2021")>
+<Assembly: AssemblyTitle("GPO Plus")>
+<Assembly: AssemblyDescription("Editor avancado de Politicas de Grupo com suporte a Active Directory - PT-BR")>
+<Assembly: AssemblyCompany("ManoAlee")>
+<Assembly: AssemblyProduct("GPO Plus")>
+<Assembly: AssemblyCopyright("Copyright Ben Nordick 2016-2021 | Fork por Alessandro Meneses 2025-2026")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("2.0.0.0")>
+<Assembly: AssemblyFileVersion("2.0.0.0")>
