@@ -14,6 +14,9 @@ Public Class GpoWizard
     Private BtnBackup As Button
     Private BtnRestore As Button
     Private BtnValidate As Button
+    Private BtnExportReport As Button
+    Private BtnOpenSysvol As Button
+    Private BtnOpenBackups As Button
     Private BtnClose As Button
     Private LblStatus As Label
     Private BgWorker As BackgroundWorker
@@ -34,12 +37,17 @@ Public Class GpoWizard
         TxtPath = New TextBox() With {.Left = 340, .Top = 40, .Width = 340, .ReadOnly = True}
         TxtDetails = New TextBox() With {.Left = 340, .Top = 68, .Width = 340, .Height = 240, .Multiline = True, .ReadOnly = True, .ScrollBars = ScrollBars.Vertical}
 
-        BtnBackup = New Button() With {.Left = 340, .Top = 320, .Width = 100, .Text = "Backup", .Enabled = False}
-        BtnRestore = New Button() With {.Left = 450, .Top = 320, .Width = 100, .Text = "Restaurar", .Enabled = False}
-        BtnValidate = New Button() With {.Left = 560, .Top = 320, .Width = 120, .Text = "Validar/Afetados", .Enabled = False}
+        BtnBackup = New Button() With {.Left = 340, .Top = 320, .Width = 90, .Text = "Backup", .Enabled = False}
+        BtnRestore = New Button() With {.Left = 435, .Top = 320, .Width = 90, .Text = "Restaurar", .Enabled = False}
+        BtnValidate = New Button() With {.Left = 530, .Top = 320, .Width = 150, .Text = "Validar/Afetados", .Enabled = False}
+
+        BtnExportReport = New Button() With {.Left = 340, .Top = 350, .Width = 150, .Text = "Exportar Relatório...", .Enabled = False}
+        BtnOpenSysvol = New Button() With {.Left = 500, .Top = 350, .Width = 180, .Text = "Abrir pasta SYSVOL", .Enabled = False}
+
+        BtnOpenBackups = New Button() With {.Left = 10, .Top = 350, .Width = 320, .Text = "Abrir pasta de Backups", .Enabled = True}
         BtnClose = New Button() With {.Left = 580, .Top = 360, .Width = 100, .Text = "Fechar"}
 
-        Me.Controls.AddRange(New Control() {TxtDomain, BtnRefresh, LblStatus, LstGpos, TxtPath, TxtDetails, BtnBackup, BtnRestore, BtnValidate, BtnClose})
+        Me.Controls.AddRange(New Control() {TxtDomain, BtnRefresh, LblStatus, LstGpos, TxtPath, TxtDetails, BtnBackup, BtnRestore, BtnValidate, BtnExportReport, BtnOpenSysvol, BtnOpenBackups, BtnClose})
 
         BgWorker = New BackgroundWorker()
         BgWorker.WorkerSupportsCancellation = False
@@ -51,6 +59,9 @@ Public Class GpoWizard
         AddHandler BtnBackup.Click, AddressOf BtnBackup_Click
         AddHandler BtnRestore.Click, AddressOf BtnRestore_Click
         AddHandler BtnValidate.Click, AddressOf BtnValidate_Click
+        AddHandler BtnExportReport.Click, AddressOf BtnExportReport_Click
+        AddHandler BtnOpenSysvol.Click, AddressOf BtnOpenSysvol_Click
+        AddHandler BtnOpenBackups.Click, AddressOf BtnOpenBackups_Click
         AddHandler BtnClose.Click, Sub(s, e) Me.Close()
 
         TxtDomain.Text = AdGpoManager.GetCurrentDomain()
@@ -103,12 +114,16 @@ Public Class GpoWizard
             BtnBackup.Enabled = g.IsAccessible
             BtnRestore.Enabled = False
             BtnValidate.Enabled = g.IsAccessible
+            BtnExportReport.Enabled = g.IsAccessible
+            BtnOpenSysvol.Enabled = g.IsAccessible
         Else
             TxtPath.Text = ""
             TxtDetails.Text = ""
             BtnBackup.Enabled = False
             BtnRestore.Enabled = False
             BtnValidate.Enabled = False
+            BtnExportReport.Enabled = False
+            BtnOpenSysvol.Enabled = False
         End If
     End Sub
 
@@ -198,4 +213,77 @@ Public Class GpoWizard
         TxtDetails.Text = sb.ToString()
         MessageBox.Show("Validação concluída. Veja os detalhes no painel à direita.", "Validador de GPO", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
+    Private Sub BtnExportReport_Click(sender As Object, e As EventArgs)
+        If LstGpos.SelectedIndex < 0 Then Return
+        Dim g = DirectCast(LstGpos.SelectedItem, GpoInfo)
+        Using sfd As New SaveFileDialog()
+            sfd.Filter = "Arquivos de texto|*.txt|CSV|*.csv"
+            sfd.FileName = "Relatorio_GPO_" & SanitizeFileName(g.DisplayName) & "_" & DateTime.Now.ToString("yyyyMMdd_HHmmss")
+            If sfd.ShowDialog(Me) <> DialogResult.OK Then Return
+            Try
+                Dim content = TxtDetails.Text
+                If sfd.FilterIndex = 2 Then
+                    content = ConvertReportToCsv(content)
+                End If
+                IO.File.WriteAllText(sfd.FileName, content, Encoding.UTF8)
+                MessageBox.Show("Relatório exportado com sucesso.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show("Falha ao exportar relatório: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub BtnOpenSysvol_Click(sender As Object, e As EventArgs)
+        If LstGpos.SelectedIndex < 0 Then Return
+        Dim g = DirectCast(LstGpos.SelectedItem, GpoInfo)
+        Try
+            If Not String.IsNullOrEmpty(g.FileSystemPath) Then
+                Process.Start("explorer.exe", g.FileSystemPath)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Falha ao abrir pasta: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub BtnOpenBackups_Click(sender As Object, e As EventArgs)
+        Try
+            Dim root = GpoBackupManager.GetBackupRoot()
+            Process.Start("explorer.exe", root)
+        Catch ex As Exception
+            MessageBox.Show("Falha ao abrir pasta de backups: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Shared Function SanitizeFileName(name As String) As String
+        If String.IsNullOrEmpty(name) Then Return "GPO"
+        For Each ch In IO.Path.GetInvalidFileNameChars()
+            name = name.Replace(ch, "_"c)
+        Next
+        Return name
+    End Function
+
+    Private Shared Function ConvertReportToCsv(text As String) As String
+        ' Minimal export: each line becomes a row "Tipo";"Valor"
+        Dim sb As New StringBuilder()
+        sb.AppendLine("Campo;Valor")
+        For Each line In text.Split({vbCrLf, vbLf}, StringSplitOptions.None)
+            If String.IsNullOrWhiteSpace(line) Then Continue For
+            Dim parts = line.Split({":"c}, 2)
+            If parts.Length = 2 Then
+                sb.AppendLine(EscapeCsv(parts(0).Trim()) & ";" & EscapeCsv(parts(1).Trim()))
+            Else
+                sb.AppendLine("Linha;" & EscapeCsv(line.Trim()))
+            End If
+        Next
+        Return sb.ToString()
+    End Function
+
+    Private Shared Function EscapeCsv(value As String) As String
+        If value Is Nothing Then Return ""
+        If value.Contains(";") OrElse value.Contains(ChrW(34)) OrElse value.Contains(vbCr) OrElse value.Contains(vbLf) Then
+            Return ChrW(34) & value.Replace(ChrW(34), ChrW(34) & ChrW(34)) & ChrW(34)
+        End If
+        Return value
+    End Function
 End Class
