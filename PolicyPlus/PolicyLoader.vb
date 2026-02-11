@@ -44,6 +44,13 @@ Public Class PolicyLoader
                 MainSourcePath = Argument
             Case PolicyLoaderSource.Null
                 MainSourcePath = ""
+            Case PolicyLoaderSource.DomainGpo
+                ' Argument format: Domain|GpoDisplayName|GpoGuid
+                Dim parts = Split(Argument, "|", 3)
+                If parts.Length <> 3 Then Throw New Exception("Formato de argumento inválido para GPO de domínio.")
+                Dim manager As New AdGpoManager(parts(0), parts(1), parts(2))
+                MainSourcePath = manager.GetPolFilePath(IsUser)
+                GptIniPath = manager.GetGptIniPath()
         End Select
     End Sub
     Public Function OpenSource() As IPolicySource
@@ -125,26 +132,30 @@ Public Class PolicyLoader
                 ' Figure out whether this edition can handle Group Policy application by itself
                 If HasGroupPolicyInfrastructure() Then
                     PInvoke.RefreshPolicyEx(Not User, 0)
-                    Return "saved to disk and invoked policy refresh"
+                    Return "salvo em disco e atualização de política invocada"
                 Else
                     pol.ApplyDifference(oldPol, RegistryPolicyProxy.EncapsulateKey(If(User, RegistryHive.CurrentUser, RegistryHive.LocalMachine)))
                     PInvoke.SendNotifyMessageW(New IntPtr(&HFFFF), &H1A, UIntPtr.Zero, IntPtr.Zero) ' Broadcast WM_SETTINGCHANGE
-                    Return "saved to disk and applied diff to Registry"
+                    Return "salvo em disco e diferença aplicada ao Registro"
                 End If
             Case PolicyLoaderSource.LocalRegistry
-                Return "already applied"
+                Return "já aplicado"
             Case PolicyLoaderSource.NtUserDat
-                Return "will apply when policy source is closed"
+                Return "será aplicado quando a origem for fechada"
             Case PolicyLoaderSource.Null
-                Return "discarded"
+                Return "descartado"
             Case PolicyLoaderSource.PolFile
                 CType(SourceObject, PolFile).Save(MainSourcePath)
-                Return "saved to disk"
+                Return "salvo em disco"
             Case PolicyLoaderSource.SidGpo
                 CType(SourceObject, PolFile).Save(MainSourcePath)
                 UpdateGptIni()
                 PInvoke.RefreshPolicyEx(False, 0)
-                Return "saved to disk and invoked policy refresh"
+                Return "salvo em disco e atualização de política invocada"
+            Case PolicyLoaderSource.DomainGpo
+                CType(SourceObject, PolFile).Save(MainSourcePath)
+                UpdateGptIni()
+                Return "salvo no SYSVOL do domínio"
         End Select
         Return ""
     End Function
@@ -220,17 +231,19 @@ Public Class PolicyLoader
         Dim name As String = ""
         Select Case SourceType
             Case PolicyLoaderSource.LocalGpo
-                name = "Local GPO"
+                name = "GPO Local"
             Case PolicyLoaderSource.LocalRegistry
-                name = "Registry"
+                name = "Registro"
             Case PolicyLoaderSource.PolFile
-                name = "File"
+                name = "Arquivo"
             Case PolicyLoaderSource.SidGpo
-                name = "User GPO"
+                name = "GPO de Usuário"
             Case PolicyLoaderSource.NtUserDat
-                name = "User hive"
+                name = "Hive de Usuário"
             Case PolicyLoaderSource.Null
-                name = "Scratch space"
+                name = "Espaço temporário"
+            Case PolicyLoaderSource.DomainGpo
+                name = "GPO do Domínio"
         End Select
         If OriginalArgument <> "" Then Return name & " (" & OriginalArgument & ")" Else Return name
     End Function
@@ -242,6 +255,7 @@ Public Enum PolicyLoaderSource
     SidGpo
     NtUserDat
     Null
+    DomainGpo
 End Enum
 Public Enum PolicySourceWritability
     Writable ' Full writability

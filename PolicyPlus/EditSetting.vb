@@ -30,7 +30,7 @@
         ExtraOptionsPanel.VerticalScroll.Visible = True
         ExtraOptionsPanel.AutoScroll = True
         PreparePolicyElements()
-        SectionDropdown.Text = If(CurrentSection = AdmxPolicySection.Machine, "Computer", "User")
+        SectionDropdown.Text = If(CurrentSection = AdmxPolicySection.Machine, "Computador", "Usuário")
         SectionDropdown_SelectedIndexChanged(Nothing, Nothing) ' Force an update of the current source
         PreparePolicyState()
         StateRadiosChanged(Nothing, Nothing)
@@ -163,7 +163,7 @@
                         Dim list As ListPolicyElement = elemDict(pres.ID)
                         Dim button As New Button With {
                             .UseVisualStyleBackColor = True,
-                            .Text = "Edit..."
+                            .Text = "Editar..."
                         }
                         AddHandler button.Click, Sub()
                                                      If ListEditor.PresentDialog(listPres.Label, button.Tag, list.UserProvidesNames) = DialogResult.OK Then button.Tag = ListEditor.FinalData
@@ -228,7 +228,7 @@
         OkButton.Enabled = canWrite
         If CurrentComments Is Nothing Then
             CommentTextbox.Enabled = False
-            CommentTextbox.Text = "Comments unavailable for this policy source"
+            CommentTextbox.Text = "Comentários indisponíveis para esta origem de política"
         ElseIf CurrentComments.ContainsKey(CurrentSetting.UniqueID) Then
             CommentTextbox.Enabled = True
             CommentTextbox.Text = CurrentComments(CurrentSetting.UniqueID)
@@ -303,7 +303,7 @@
         Next
     End Sub
     Private Sub SectionDropdown_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SectionDropdown.SelectedIndexChanged
-        Dim isUser = (SectionDropdown.Text = "User")
+        Dim isUser = (SectionDropdown.Text = "Usuário")
         CurrentSource = If(isUser, UserPolSource, CompPolSource)
         CurrentLoader = If(isUser, UserPolLoader, CompPolLoader)
         CurrentComments = If(isUser, UserComments, CompComments)

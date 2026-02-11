@@ -36,7 +36,7 @@ Partial Class OpenSection
         Me.OptUser.Size = New System.Drawing.Size(47, 17)
         Me.OptUser.TabIndex = 0
         Me.OptUser.TabStop = True
-        Me.OptUser.Text = "User"
+        Me.OptUser.Text = "Usuário"
         Me.OptUser.UseVisualStyleBackColor = True
         '
         'OptComputer
@@ -47,7 +47,7 @@ Partial Class OpenSection
         Me.OptComputer.Size = New System.Drawing.Size(70, 17)
         Me.OptComputer.TabIndex = 1
         Me.OptComputer.TabStop = True
-        Me.OptComputer.Text = "Computer"
+        Me.OptComputer.Text = "Computador"
         Me.OptComputer.UseVisualStyleBackColor = True
         '
         'ButtonOK
@@ -66,7 +66,7 @@ Partial Class OpenSection
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.Size = New System.Drawing.Size(54, 23)
         Me.ButtonCancel.TabIndex = 3
-        Me.ButtonCancel.Text = "Cancel"
+        Me.ButtonCancel.Text = "Cancelar"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
         'OpenSection
@@ -88,7 +88,7 @@ Partial Class OpenSection
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Select Section"
+        Me.Text = "Selecionar Seção"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

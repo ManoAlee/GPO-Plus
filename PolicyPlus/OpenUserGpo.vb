@@ -1,4 +1,4 @@
-﻿Imports System.Security.Principal
+Imports System.Security.Principal
 Public Class OpenUserGpo
     Public SelectedSid As String
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
@@ -8,7 +8,7 @@ Public Class OpenUserGpo
             Dim sid As SecurityIdentifier = userAccount.Translate(GetType(SecurityIdentifier))
             SidTextbox.Text = sid.ToString
         Catch ex As Exception
-            MsgBox("The name could not be translated to a SID.", MsgBoxStyle.Exclamation)
+            MsgBox("O nome nao pode ser traduzido para um SID.", MsgBoxStyle.Exclamation)
         End Try
     End Sub
     Private Sub OkButton_Click(sender As Object, e As EventArgs) Handles OkButton.Click
@@ -21,7 +21,7 @@ Public Class OpenUserGpo
             ' Make sure the SID is valid
             Dim sid As New SecurityIdentifier(SidTextbox.Text)
         Catch ex As Exception
-            MsgBox("The SID is not valid. Enter a SID in the lower box, or enter a username in the top box and press Search to translate.", MsgBoxStyle.Exclamation)
+            MsgBox("O SID nao e valido. Insira um SID na caixa inferior, ou insira um nome de usuario na caixa superior e pressione Pesquisar para traduzir.", MsgBoxStyle.Exclamation)
             Exit Sub
         End Try
         SelectedSid = SidTextbox.Text

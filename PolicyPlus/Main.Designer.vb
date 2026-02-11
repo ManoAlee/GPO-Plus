@@ -40,6 +40,7 @@ Partial Class Main
         Me.OpenADMXFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetADMLLanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseADMXWorkspaceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenDomainGpoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenPolicyResourcesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SavePoliciesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditRawPOLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -115,13 +116,13 @@ Partial Class Main
         '
         'ChSettingEnabled
         '
-        ChSettingEnabled.Text = "State"
+        ChSettingEnabled.Text = "Estado"
         ChSettingEnabled.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         ChSettingEnabled.Width = 107
         '
         'ChSettingCommented
         '
-        ChSettingCommented.Text = "Comment"
+        ChSettingCommented.Text = "Comentário"
         ChSettingCommented.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         ChSettingCommented.Width = 68
         '
@@ -154,13 +155,13 @@ Partial Class Main
         '
         ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         ToolStripStatusLabel1.Size = New System.Drawing.Size(102, 17)
-        ToolStripStatusLabel1.Text = "Computer source:"
+        ToolStripStatusLabel1.Text = "Origem do computador:"
         '
         'ToolStripStatusLabel2
         '
         ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         ToolStripStatusLabel2.Size = New System.Drawing.Size(71, 17)
-        ToolStripStatusLabel2.Text = "User source:"
+        ToolStripStatusLabel2.Text = "Origem do usuário:"
         '
         'ToolStripSeparator6
         '
@@ -178,208 +179,215 @@ Partial Class Main
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenADMXFolderToolStripMenuItem, Me.OpenADMXFileToolStripMenuItem, Me.SetADMLLanguageToolStripMenuItem, Me.CloseADMXWorkspaceToolStripMenuItem, ToolStripSeparator2, Me.OpenPolicyResourcesToolStripMenuItem, Me.SavePoliciesToolStripMenuItem, Me.EditRawPOLToolStripMenuItem, ToolStripSeparator3, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenADMXFolderToolStripMenuItem, Me.OpenADMXFileToolStripMenuItem, Me.SetADMLLanguageToolStripMenuItem, Me.CloseADMXWorkspaceToolStripMenuItem, ToolStripSeparator2, Me.OpenDomainGpoToolStripMenuItem, Me.OpenPolicyResourcesToolStripMenuItem, Me.SavePoliciesToolStripMenuItem, Me.EditRawPOLToolStripMenuItem, ToolStripSeparator3, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
+        Me.FileToolStripMenuItem.Text = "Arquivo"
         '
         'OpenADMXFolderToolStripMenuItem
         '
         Me.OpenADMXFolderToolStripMenuItem.Name = "OpenADMXFolderToolStripMenuItem"
         Me.OpenADMXFolderToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.OpenADMXFolderToolStripMenuItem.Text = "Open ADMX Folder"
+        Me.OpenADMXFolderToolStripMenuItem.Text = "Abrir Pasta ADMX"
         '
         'OpenADMXFileToolStripMenuItem
         '
         Me.OpenADMXFileToolStripMenuItem.Name = "OpenADMXFileToolStripMenuItem"
         Me.OpenADMXFileToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.OpenADMXFileToolStripMenuItem.Text = "Open ADMX File"
+        Me.OpenADMXFileToolStripMenuItem.Text = "Abrir Arquivo ADMX"
         '
         'SetADMLLanguageToolStripMenuItem
         '
         Me.SetADMLLanguageToolStripMenuItem.Name = "SetADMLLanguageToolStripMenuItem"
         Me.SetADMLLanguageToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.SetADMLLanguageToolStripMenuItem.Text = "Set ADML Language"
+        Me.SetADMLLanguageToolStripMenuItem.Text = "Definir Idioma ADML"
         '
         'CloseADMXWorkspaceToolStripMenuItem
         '
         Me.CloseADMXWorkspaceToolStripMenuItem.Name = "CloseADMXWorkspaceToolStripMenuItem"
         Me.CloseADMXWorkspaceToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.CloseADMXWorkspaceToolStripMenuItem.Text = "Close ADMX Workspace"
+        Me.CloseADMXWorkspaceToolStripMenuItem.Text = "Fechar Espaço ADMX"
+        '
+        'OpenDomainGpoToolStripMenuItem
+        '
+        Me.OpenDomainGpoToolStripMenuItem.Name = "OpenDomainGpoToolStripMenuItem"
+        Me.OpenDomainGpoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
+        Me.OpenDomainGpoToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.OpenDomainGpoToolStripMenuItem.Text = "Abrir GPO do Domínio"
         '
         'OpenPolicyResourcesToolStripMenuItem
         '
         Me.OpenPolicyResourcesToolStripMenuItem.Name = "OpenPolicyResourcesToolStripMenuItem"
         Me.OpenPolicyResourcesToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
         Me.OpenPolicyResourcesToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.OpenPolicyResourcesToolStripMenuItem.Text = "Open Policy Resources"
+        Me.OpenPolicyResourcesToolStripMenuItem.Text = "Abrir Recursos de Política"
         '
         'SavePoliciesToolStripMenuItem
         '
         Me.SavePoliciesToolStripMenuItem.Name = "SavePoliciesToolStripMenuItem"
         Me.SavePoliciesToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
         Me.SavePoliciesToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.SavePoliciesToolStripMenuItem.Text = "Save Policies"
+        Me.SavePoliciesToolStripMenuItem.Text = "Salvar Políticas"
         '
         'EditRawPOLToolStripMenuItem
         '
         Me.EditRawPOLToolStripMenuItem.Name = "EditRawPOLToolStripMenuItem"
         Me.EditRawPOLToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.EditRawPOLToolStripMenuItem.Text = "Edit Raw POL"
+        Me.EditRawPOLToolStripMenuItem.Text = "Editar POL Bruto"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
+        Me.ExitToolStripMenuItem.Text = "Sair"
         '
         'ViewToolStripMenuItem
         '
         Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmptyCategoriesToolStripMenuItem, Me.OnlyFilteredObjectsToolStripMenuItem, ToolStripSeparator1, Me.FilterOptionsToolStripMenuItem, Me.DeduplicatePoliciesToolStripMenuItem, ToolStripSeparator6, Me.LoadedADMXFilesToolStripMenuItem, Me.AllProductsToolStripMenuItem, Me.AllSupportDefinitionsToolStripMenuItem})
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.ViewToolStripMenuItem.Text = "View"
+        Me.ViewToolStripMenuItem.Text = "Visualizar"
         '
         'EmptyCategoriesToolStripMenuItem
         '
         Me.EmptyCategoriesToolStripMenuItem.Name = "EmptyCategoriesToolStripMenuItem"
         Me.EmptyCategoriesToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.EmptyCategoriesToolStripMenuItem.Text = "Empty Categories"
+        Me.EmptyCategoriesToolStripMenuItem.Text = "Categorias Vazias"
         '
         'OnlyFilteredObjectsToolStripMenuItem
         '
         Me.OnlyFilteredObjectsToolStripMenuItem.Name = "OnlyFilteredObjectsToolStripMenuItem"
         Me.OnlyFilteredObjectsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.OnlyFilteredObjectsToolStripMenuItem.Text = "Only Filtered Policies"
+        Me.OnlyFilteredObjectsToolStripMenuItem.Text = "Apenas Políticas Filtradas"
         '
         'FilterOptionsToolStripMenuItem
         '
         Me.FilterOptionsToolStripMenuItem.Name = "FilterOptionsToolStripMenuItem"
         Me.FilterOptionsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.FilterOptionsToolStripMenuItem.Text = "Filter Options"
+        Me.FilterOptionsToolStripMenuItem.Text = "Opções de Filtro"
         '
         'DeduplicatePoliciesToolStripMenuItem
         '
         Me.DeduplicatePoliciesToolStripMenuItem.Name = "DeduplicatePoliciesToolStripMenuItem"
         Me.DeduplicatePoliciesToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.DeduplicatePoliciesToolStripMenuItem.Text = "Deduplicate Policies"
+        Me.DeduplicatePoliciesToolStripMenuItem.Text = "Desduplicar Políticas"
         Me.DeduplicatePoliciesToolStripMenuItem.Visible = False
         '
         'LoadedADMXFilesToolStripMenuItem
         '
         Me.LoadedADMXFilesToolStripMenuItem.Name = "LoadedADMXFilesToolStripMenuItem"
         Me.LoadedADMXFilesToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.LoadedADMXFilesToolStripMenuItem.Text = "Loaded ADMX Files"
+        Me.LoadedADMXFilesToolStripMenuItem.Text = "Arquivos ADMX Carregados"
         '
         'AllProductsToolStripMenuItem
         '
         Me.AllProductsToolStripMenuItem.Name = "AllProductsToolStripMenuItem"
         Me.AllProductsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.AllProductsToolStripMenuItem.Text = "All Products"
+        Me.AllProductsToolStripMenuItem.Text = "Todos os Produtos"
         '
         'AllSupportDefinitionsToolStripMenuItem
         '
         Me.AllSupportDefinitionsToolStripMenuItem.Name = "AllSupportDefinitionsToolStripMenuItem"
         Me.AllSupportDefinitionsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.AllSupportDefinitionsToolStripMenuItem.Text = "All Support Definitions"
+        Me.AllSupportDefinitionsToolStripMenuItem.Text = "Todas as Def. de Suporte"
         '
         'FindToolStripMenuItem
         '
         Me.FindToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ByIDToolStripMenuItem, Me.ByTextToolStripMenuItem, Me.ByRegistryToolStripMenuItem, ToolStripSeparator4, Me.SearchResultsToolStripMenuItem, Me.FindNextToolStripMenuItem})
         Me.FindToolStripMenuItem.Name = "FindToolStripMenuItem"
         Me.FindToolStripMenuItem.Size = New System.Drawing.Size(42, 20)
-        Me.FindToolStripMenuItem.Text = "Find"
+        Me.FindToolStripMenuItem.Text = "Localizar"
         '
         'ByIDToolStripMenuItem
         '
         Me.ByIDToolStripMenuItem.Name = "ByIDToolStripMenuItem"
         Me.ByIDToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
         Me.ByIDToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ByIDToolStripMenuItem.Text = "By ID"
+        Me.ByIDToolStripMenuItem.Text = "Por ID"
         '
         'ByTextToolStripMenuItem
         '
         Me.ByTextToolStripMenuItem.Name = "ByTextToolStripMenuItem"
         Me.ByTextToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
         Me.ByTextToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ByTextToolStripMenuItem.Text = "By Text"
+        Me.ByTextToolStripMenuItem.Text = "Por Texto"
         '
         'ByRegistryToolStripMenuItem
         '
         Me.ByRegistryToolStripMenuItem.Name = "ByRegistryToolStripMenuItem"
         Me.ByRegistryToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.ByRegistryToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ByRegistryToolStripMenuItem.Text = "By Registry"
+        Me.ByRegistryToolStripMenuItem.Text = "Por Registro"
         '
         'SearchResultsToolStripMenuItem
         '
         Me.SearchResultsToolStripMenuItem.Name = "SearchResultsToolStripMenuItem"
         Me.SearchResultsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F3), System.Windows.Forms.Keys)
         Me.SearchResultsToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.SearchResultsToolStripMenuItem.Text = "Search Results"
+        Me.SearchResultsToolStripMenuItem.Text = "Resultados da Pesquisa"
         '
         'FindNextToolStripMenuItem
         '
         Me.FindNextToolStripMenuItem.Name = "FindNextToolStripMenuItem"
         Me.FindNextToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3
         Me.FindNextToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.FindNextToolStripMenuItem.Text = "Find Next"
+        Me.FindNextToolStripMenuItem.Text = "Localizar Próximo"
         '
         'ShareToolStripMenuItem
         '
         Me.ShareToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportSemanticPolicyToolStripMenuItem, Me.ImportPOLToolStripMenuItem, Me.ImportREGToolStripMenuItem, ToolStripSeparator5, Me.ExportPOLToolStripMenuItem, Me.ExportREGToolStripMenuItem})
         Me.ShareToolStripMenuItem.Name = "ShareToolStripMenuItem"
         Me.ShareToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
-        Me.ShareToolStripMenuItem.Text = "Share"
+        Me.ShareToolStripMenuItem.Text = "Compartilhar"
         '
         'ImportSemanticPolicyToolStripMenuItem
         '
         Me.ImportSemanticPolicyToolStripMenuItem.Name = "ImportSemanticPolicyToolStripMenuItem"
         Me.ImportSemanticPolicyToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ImportSemanticPolicyToolStripMenuItem.Text = "Import Semantic Policy"
+        Me.ImportSemanticPolicyToolStripMenuItem.Text = "Importar Política Semântica"
         '
         'ImportPOLToolStripMenuItem
         '
         Me.ImportPOLToolStripMenuItem.Name = "ImportPOLToolStripMenuItem"
         Me.ImportPOLToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ImportPOLToolStripMenuItem.Text = "Import POL"
+        Me.ImportPOLToolStripMenuItem.Text = "Importar POL"
         '
         'ImportREGToolStripMenuItem
         '
         Me.ImportREGToolStripMenuItem.Name = "ImportREGToolStripMenuItem"
         Me.ImportREGToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ImportREGToolStripMenuItem.Text = "Import REG"
+        Me.ImportREGToolStripMenuItem.Text = "Importar REG"
         '
         'ExportPOLToolStripMenuItem
         '
         Me.ExportPOLToolStripMenuItem.Name = "ExportPOLToolStripMenuItem"
         Me.ExportPOLToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ExportPOLToolStripMenuItem.Text = "Export POL"
+        Me.ExportPOLToolStripMenuItem.Text = "Exportar POL"
         '
         'ExportREGToolStripMenuItem
         '
         Me.ExportREGToolStripMenuItem.Name = "ExportREGToolStripMenuItem"
         Me.ExportREGToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ExportREGToolStripMenuItem.Text = "Export REG"
+        Me.ExportREGToolStripMenuItem.Text = "Exportar REG"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.AcquireADMXFilesToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
+        Me.HelpToolStripMenuItem.Text = "Ajuda"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
+        Me.AboutToolStripMenuItem.Text = "Sobre"
         '
         'AcquireADMXFilesToolStripMenuItem
         '
         Me.AcquireADMXFilesToolStripMenuItem.Name = "AcquireADMXFilesToolStripMenuItem"
         Me.AcquireADMXFilesToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.AcquireADMXFilesToolStripMenuItem.Text = "Acquire ADMX Files"
+        Me.AcquireADMXFilesToolStripMenuItem.Text = "Adquirir Arquivos ADMX"
         '
         'SplitContainer
         '
@@ -407,7 +415,7 @@ Partial Class Main
         Me.ComboAppliesTo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboAppliesTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboAppliesTo.Items.AddRange(New Object() {"User or Computer", "User", "Computer"})
+        Me.ComboAppliesTo.Items.AddRange(New Object() {"Usuário ou Computador", "Usuário", "Computador"})
         Me.ComboAppliesTo.Location = New System.Drawing.Point(0, 0)
         Me.ComboAppliesTo.Name = "ComboAppliesTo"
         Me.ComboAppliesTo.Size = New System.Drawing.Size(190, 21)
@@ -442,7 +450,7 @@ Partial Class Main
         Me.CmeCatOpen.Name = "CmeCatOpen"
         Me.CmeCatOpen.Size = New System.Drawing.Size(212, 22)
         Me.CmeCatOpen.Tag = "C"
-        Me.CmeCatOpen.Text = "Open"
+        Me.CmeCatOpen.Text = "Abrir"
         '
         'CmePolEdit
         '
@@ -450,27 +458,27 @@ Partial Class Main
         Me.CmePolEdit.Name = "CmePolEdit"
         Me.CmePolEdit.Size = New System.Drawing.Size(212, 22)
         Me.CmePolEdit.Tag = "P"
-        Me.CmePolEdit.Text = "Edit"
+        Me.CmePolEdit.Text = "Editar"
         '
         'CmeAllDetails
         '
         Me.CmeAllDetails.Name = "CmeAllDetails"
         Me.CmeAllDetails.Size = New System.Drawing.Size(212, 22)
-        Me.CmeAllDetails.Text = "Details"
+        Me.CmeAllDetails.Text = "Detalhes"
         '
         'CmePolInspectElements
         '
         Me.CmePolInspectElements.Name = "CmePolInspectElements"
         Me.CmePolInspectElements.Size = New System.Drawing.Size(212, 22)
         Me.CmePolInspectElements.Tag = "P"
-        Me.CmePolInspectElements.Text = "Element Inspector"
+        Me.CmePolInspectElements.Text = "Inspetor de Elementos"
         '
         'CmePolSpolFragment
         '
         Me.CmePolSpolFragment.Name = "CmePolSpolFragment"
         Me.CmePolSpolFragment.Size = New System.Drawing.Size(212, 22)
         Me.CmePolSpolFragment.Tag = "P"
-        Me.CmePolSpolFragment.Text = "Semantic Policy Fragment"
+        Me.CmePolSpolFragment.Text = "Fragmento de Política Semântica"
         '
         'PolicyIcons
         '
@@ -542,7 +550,7 @@ Partial Class Main
         '
         'ChSettingName
         '
-        Me.ChSettingName.Text = "Name"
+        Me.ChSettingName.Text = "Nome"
         Me.ChSettingName.Width = 116
         '
         'SettingInfoPanel
@@ -586,7 +594,7 @@ Partial Class Main
         Me.PolicyTitleLabel.Name = "PolicyTitleLabel"
         Me.PolicyTitleLabel.Size = New System.Drawing.Size(66, 13)
         Me.PolicyTitleLabel.TabIndex = 0
-        Me.PolicyTitleLabel.Text = "Policy title"
+        Me.PolicyTitleLabel.Text = "Título da política"
         Me.PolicyTitleLabel.UseMnemonic = False
         '
         'PolicySupportedLabel
@@ -597,7 +605,7 @@ Partial Class Main
         Me.PolicySupportedLabel.Name = "PolicySupportedLabel"
         Me.PolicySupportedLabel.Size = New System.Drawing.Size(72, 13)
         Me.PolicySupportedLabel.TabIndex = 1
-        Me.PolicySupportedLabel.Text = "Requirements"
+        Me.PolicySupportedLabel.Text = "Requisitos"
         Me.PolicySupportedLabel.UseMnemonic = False
         '
         'PolicyDescLabel
@@ -607,7 +615,7 @@ Partial Class Main
         Me.PolicyDescLabel.Name = "PolicyDescLabel"
         Me.PolicyDescLabel.Size = New System.Drawing.Size(89, 13)
         Me.PolicyDescLabel.TabIndex = 2
-        Me.PolicyDescLabel.Text = "Policy description"
+        Me.PolicyDescLabel.Text = "Descrição da política"
         Me.PolicyDescLabel.UseMnemonic = False
         '
         'InfoStrip
@@ -623,13 +631,13 @@ Partial Class Main
         '
         Me.ComputerSourceLabel.Name = "ComputerSourceLabel"
         Me.ComputerSourceLabel.Size = New System.Drawing.Size(85, 17)
-        Me.ComputerSourceLabel.Text = "Computer info"
+        Me.ComputerSourceLabel.Text = "Info do computador"
         '
         'UserSourceLabel
         '
         Me.UserSourceLabel.Name = "UserSourceLabel"
         Me.UserSourceLabel.Size = New System.Drawing.Size(54, 17)
-        Me.UserSourceLabel.Text = "User info"
+        Me.UserSourceLabel.Text = "Info do usuário"
         '
         'PolicyIsPrefTable
         '
@@ -666,8 +674,8 @@ Partial Class Main
         Me.PolicyIsPrefLabel.Name = "PolicyIsPrefLabel"
         Me.PolicyIsPrefLabel.Size = New System.Drawing.Size(700, 13)
         Me.PolicyIsPrefLabel.TabIndex = 1
-        Me.PolicyIsPrefLabel.Text = "Because it is not stored in a Policies section of the Registry, this policy is a " &
-    "preference and will not be automatically undone if the setting is removed."
+        Me.PolicyIsPrefLabel.Text = "Como não está armazenada em uma seção de Políticas do Registro, esta política é uma " &
+    "preferência e não será automaticamente desfeita se a configuração for removida."
         '
         'Main
         '
@@ -708,6 +716,7 @@ Partial Class Main
     Friend WithEvents OpenADMXFolderToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenADMXFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseADMXWorkspaceToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenDomainGpoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitContainer As SplitContainer
     Friend WithEvents CategoriesTree As TreeView

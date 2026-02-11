@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class LanguageOptions
     Inherits System.Windows.Forms.Form
 
@@ -68,7 +68,7 @@ Partial Class LanguageOptions
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(157, 13)
         Label2.TabIndex = 3
-        Label2.Text = "Preferred ADML language code"
+        Label2.Text = "Codigo de idioma ADML preferido"
         '
         'LanguageOptions
         '
@@ -87,7 +87,7 @@ Partial Class LanguageOptions
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Language Options"
+        Me.Text = "Opcoes de Idioma"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

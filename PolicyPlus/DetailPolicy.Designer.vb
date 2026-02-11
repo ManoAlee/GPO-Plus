@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class DetailPolicy
     Inherits System.Windows.Forms.Form
 
@@ -133,7 +133,7 @@ Partial Class DetailPolicy
         NameLabel.Name = "NameLabel"
         NameLabel.Size = New System.Drawing.Size(35, 13)
         NameLabel.TabIndex = 9
-        NameLabel.Text = "Name"
+        NameLabel.Text = "Nome"
         '
         'IdLabel
         '
@@ -142,7 +142,7 @@ Partial Class DetailPolicy
         IdLabel.Name = "IdLabel"
         IdLabel.Size = New System.Drawing.Size(55, 13)
         IdLabel.TabIndex = 10
-        IdLabel.Text = "Unique ID"
+        IdLabel.Text = "ID Unico"
         '
         'DefinedLabel
         '
@@ -151,7 +151,7 @@ Partial Class DetailPolicy
         DefinedLabel.Name = "DefinedLabel"
         DefinedLabel.Size = New System.Drawing.Size(55, 13)
         DefinedLabel.TabIndex = 11
-        DefinedLabel.Text = "Defined in"
+        DefinedLabel.Text = "Definido em"
         '
         'DisplayLabel
         '
@@ -160,7 +160,7 @@ Partial Class DetailPolicy
         DisplayLabel.Name = "DisplayLabel"
         DisplayLabel.Size = New System.Drawing.Size(68, 13)
         DisplayLabel.TabIndex = 12
-        DisplayLabel.Text = "Display code"
+        DisplayLabel.Text = "Codigo de exibicao"
         '
         'InfoLabel
         '
@@ -169,7 +169,7 @@ Partial Class DetailPolicy
         InfoLabel.Name = "InfoLabel"
         InfoLabel.Size = New System.Drawing.Size(52, 13)
         InfoLabel.TabIndex = 13
-        InfoLabel.Text = "Info code"
+        InfoLabel.Text = "Codigo de informacao"
         '
         'PresentLabel
         '
@@ -178,7 +178,7 @@ Partial Class DetailPolicy
         PresentLabel.Name = "PresentLabel"
         PresentLabel.Size = New System.Drawing.Size(93, 13)
         PresentLabel.TabIndex = 14
-        PresentLabel.Text = "Presentation code"
+        PresentLabel.Text = "Codigo de apresentacao"
         '
         'SectionLabel
         '
@@ -187,7 +187,7 @@ Partial Class DetailPolicy
         SectionLabel.Name = "SectionLabel"
         SectionLabel.Size = New System.Drawing.Size(43, 13)
         SectionLabel.TabIndex = 15
-        SectionLabel.Text = "Section"
+        SectionLabel.Text = "Secao"
         '
         'SupportLabel
         '
@@ -196,7 +196,7 @@ Partial Class DetailPolicy
         SupportLabel.Name = "SupportLabel"
         SupportLabel.Size = New System.Drawing.Size(71, 13)
         SupportLabel.TabIndex = 16
-        SupportLabel.Text = "Supported on"
+        SupportLabel.Text = "Suportado em"
         '
         'CategoryLabel
         '
@@ -205,7 +205,7 @@ Partial Class DetailPolicy
         CategoryLabel.Name = "CategoryLabel"
         CategoryLabel.Size = New System.Drawing.Size(49, 13)
         CategoryLabel.TabIndex = 17
-        CategoryLabel.Text = "Category"
+        CategoryLabel.Text = "Categoria"
         '
         'CategoryButton
         '
@@ -213,7 +213,7 @@ Partial Class DetailPolicy
         Me.CategoryButton.Name = "CategoryButton"
         Me.CategoryButton.Size = New System.Drawing.Size(75, 23)
         Me.CategoryButton.TabIndex = 18
-        Me.CategoryButton.Text = "Details"
+        Me.CategoryButton.Text = "Detalhes"
         Me.CategoryButton.UseVisualStyleBackColor = True
         '
         'SupportButton
@@ -222,7 +222,7 @@ Partial Class DetailPolicy
         Me.SupportButton.Name = "SupportButton"
         Me.SupportButton.Size = New System.Drawing.Size(75, 23)
         Me.SupportButton.TabIndex = 17
-        Me.SupportButton.Text = "Details"
+        Me.SupportButton.Text = "Detalhes"
         Me.SupportButton.UseVisualStyleBackColor = True
         '
         'CloseButton
@@ -232,7 +232,7 @@ Partial Class DetailPolicy
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 19
-        Me.CloseButton.Text = "Close"
+        Me.CloseButton.Text = "Fechar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'DetailPolicy
@@ -270,7 +270,7 @@ Partial Class DetailPolicy
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Policy Details"
+        Me.Text = "Detalhes da Politica"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class DetailAdmx
     Inherits System.Windows.Forms.Form
 
@@ -88,7 +88,7 @@ Partial Class DetailAdmx
         Label4.Name = "Label4"
         Label4.Size = New System.Drawing.Size(43, 13)
         Label4.TabIndex = 7
-        Label4.Text = "Policies"
+        Label4.Text = "Politicas"
         '
         'Label5
         '
@@ -97,7 +97,7 @@ Partial Class DetailAdmx
         Label5.Name = "Label5"
         Label5.Size = New System.Drawing.Size(57, 13)
         Label5.TabIndex = 9
-        Label5.Text = "Categories"
+        Label5.Text = "Categorias"
         '
         'Label6
         '
@@ -106,7 +106,7 @@ Partial Class DetailAdmx
         Label6.Name = "Label6"
         Label6.Size = New System.Drawing.Size(49, 13)
         Label6.TabIndex = 11
-        Label6.Text = "Products"
+        Label6.Text = "Produtos"
         '
         'Label7
         '
@@ -255,7 +255,7 @@ Partial Class DetailAdmx
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClose.TabIndex = 14
-        Me.ButtonClose.Text = "Close"
+        Me.ButtonClose.Text = "Fechar"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
         'DetailAdmx
@@ -287,7 +287,7 @@ Partial Class DetailAdmx
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "ADMX Details"
+        Me.Text = "Detalhes ADMX"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

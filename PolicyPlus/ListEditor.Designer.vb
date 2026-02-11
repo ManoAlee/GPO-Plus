@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ListEditor
     Inherits System.Windows.Forms.Form
 
@@ -64,7 +64,7 @@ Partial Class ListEditor
         Me.ElementNameLabel.Name = "ElementNameLabel"
         Me.ElementNameLabel.Size = New System.Drawing.Size(92, 13)
         Me.ElementNameLabel.TabIndex = 1
-        Me.ElementNameLabel.Text = "List element name"
+        Me.ElementNameLabel.Text = "Nome do elemento da lista"
         '
         'CloseButton
         '
@@ -74,7 +74,7 @@ Partial Class ListEditor
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 2
-        Me.CloseButton.Text = "Cancel"
+        Me.CloseButton.Text = "Cancelar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'OkButton
@@ -104,7 +104,7 @@ Partial Class ListEditor
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Edit List"
+        Me.Text = "Editar Lista"
         CType(Me.EntriesDatagrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

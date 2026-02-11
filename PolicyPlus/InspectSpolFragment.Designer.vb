@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class InspectSpolFragment
     Inherits System.Windows.Forms.Form
 
@@ -72,7 +72,7 @@ Partial Class InspectSpolFragment
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClose.TabIndex = 4
-        Me.ButtonClose.Text = "Close"
+        Me.ButtonClose.Text = "Fechar"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
         'ButtonCopy
@@ -82,7 +82,7 @@ Partial Class InspectSpolFragment
         Me.ButtonCopy.Name = "ButtonCopy"
         Me.ButtonCopy.Size = New System.Drawing.Size(75, 23)
         Me.ButtonCopy.TabIndex = 3
-        Me.ButtonCopy.Text = "Copy"
+        Me.ButtonCopy.Text = "Copiar"
         Me.ButtonCopy.UseVisualStyleBackColor = True
         '
         'CheckHeader
@@ -114,7 +114,7 @@ Partial Class InspectSpolFragment
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Semantic Policy Fragment"
+        Me.Text = "Fragmento de Politica Semantica"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

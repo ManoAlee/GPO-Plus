@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class LoadedAdmx
     Inherits System.Windows.Forms.Form
 
@@ -69,7 +69,7 @@ Partial Class LoadedAdmx
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClose.TabIndex = 1
-        Me.ButtonClose.Text = "Close"
+        Me.ButtonClose.Text = "Fechar"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
         'LoadedAdmx
@@ -86,7 +86,7 @@ Partial Class LoadedAdmx
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Loaded ADMX Files"
+        Me.Text = "Arquivos ADMX Carregados"
         Me.ResumeLayout(False)
 
     End Sub

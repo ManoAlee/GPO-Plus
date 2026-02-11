@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Text
+Imports System.Globalization
+Imports System.Threading
 Imports Microsoft.Win32
 Public Class Main
     Dim Configuration As ConfigurationStorage
@@ -16,6 +18,11 @@ Public Class Main
     Dim ViewPolicyTypes As AdmxPolicySection = AdmxPolicySection.Both
     Dim ViewFilteredOnly As Boolean = False
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Define a cultura para Português do Brasil
+        Dim culturePtBr As New CultureInfo("pt-BR")
+        Thread.CurrentThread.CurrentCulture = culturePtBr
+        Thread.CurrentThread.CurrentUICulture = culturePtBr
+
         ' Enable the newest TLS versions supported by this Framework version (keeping Tls for Vista compatibility)
         Net.ServicePointManager.SecurityProtocol = Net.SecurityProtocolType.Tls Or Net.SecurityProtocolType.Tls11 Or Net.SecurityProtocolType.Tls12
         ' Create the configuration manager (for the Registry)
@@ -29,7 +36,7 @@ Public Class Main
         Try
             OpenPolicyLoaders(New PolicyLoader(userLoaderType, userLoaderData, True), New PolicyLoader(compLoaderType, compLoaderData, False), True)
         Catch ex As Exception
-            MsgBox("The previous policy sources are not accessible. The defaults will be loaded.", MsgBoxStyle.Exclamation)
+            MsgBox("As origens de política anteriores não estão acessíveis. As configurações padrão serão carregadas.", MsgBoxStyle.Exclamation)
             Configuration.SetValue("CompSourceType", CInt(PolicyLoaderSource.LocalGpo))
             Configuration.SetValue("UserSourceType", CInt(PolicyLoaderSource.LocalGpo))
             OpenPolicyLoaders(New PolicyLoader(PolicyLoaderSource.LocalGpo, "", True), New PolicyLoader(PolicyLoaderSource.LocalGpo, "", False), True)
@@ -48,8 +55,8 @@ Public Class Main
         If CInt(Configuration.GetValue("CheckedPolicyDefinitions", 0)) = 0 Then
             Configuration.SetValue("CheckedPolicyDefinitions", 1)
             If (Not HasGroupPolicyInfrastructure()) AndAlso AdmxWorkspace.Categories.Values.Where(Function(c) IsOrphanCategory(c) And Not IsEmptyCategory(c)).Count() > 2 Then
-                If MsgBox($"Welcome to Policy Plus!{vbCrLf}{vbCrLf}Home editions do not come with the full set of policy definitions. Would you like to download them now? " +
-                       "This can also be done later with Help | Acquire ADMX Files.", MsgBoxStyle.Information Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If MsgBox($"Bem-vindo ao Policy Plus!{vbCrLf}{vbCrLf}As edições Home não vêm com o conjunto completo de definições de política. Você gostaria de baixá-las agora? " +
+                       "Isso também pode ser feito mais tarde através de Ajuda | Adquirir Arquivos ADMX.", MsgBoxStyle.Information Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                     AcquireADMXFilesToolStripMenuItem_Click(Nothing, Nothing)
                 End If
             End If
@@ -60,13 +67,13 @@ Public Class Main
         Dim admxSource As String = Configuration.GetValue("AdmxSource", defaultAdmxSource)
         Try
             Dim fails = AdmxWorkspace.LoadFolder(admxSource, GetPreferredLanguageCode())
-            If DisplayAdmxLoadErrorReport(fails, True) = MsgBoxResult.No Then Throw New Exception("You decided to not use the problematic ADMX bundle.")
+            If DisplayAdmxLoadErrorReport(fails, True) = MsgBoxResult.No Then Throw New Exception("Você decidiu não usar o pacote ADMX problemático.")
         Catch ex As Exception
             AdmxWorkspace = New AdmxBundle
             Dim loadFailReason As String = ""
             If admxSource <> defaultAdmxSource Then
-                If MsgBox("Policy definitions could not be loaded from """ & admxSource & """: " & ex.Message & vbCrLf & vbCrLf &
-                          "Load from the default location?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
+                If MsgBox("As definições de política não puderam ser carregadas de """ & admxSource & """: " & ex.Message & vbCrLf & vbCrLf &
+                          "Carregar do local padrão?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
                     Try
                         Configuration.SetValue("AdmxSource", defaultAdmxSource)
                         AdmxWorkspace = New AdmxBundle
@@ -78,7 +85,7 @@ Public Class Main
             Else
                 loadFailReason = ex.Message
             End If
-            If loadFailReason <> "" Then MsgBox("Policy definitions could not be loaded: " & loadFailReason, MsgBoxStyle.Exclamation)
+            If loadFailReason <> "" Then MsgBox("As definições de política não puderam ser carregadas: " & loadFailReason, MsgBoxStyle.Exclamation)
         End Try
     End Sub
     Sub PopulateAdmxUi()
@@ -351,11 +358,11 @@ Public Class Main
         ComputerSourceLabel.Text = CompPolicyLoader.GetDisplayInfo
         If allOk Then
             If Not Quiet Then
-                MsgBox("Both the user and computer policy sources are loaded and writable.", MsgBoxStyle.Information)
+                MsgBox("As origens de política de usuário e computador foram carregadas e são editáveis.", MsgBoxStyle.Information)
             End If
         Else
-            Dim msgText = "Not all policy sources are fully writable." & vbCrLf & vbCrLf &
-                "The user source " & userStatus & "." & vbCrLf & vbCrLf & "The computer source " & compStatus & "."
+            Dim msgText = "Nem todas as origens de política são totalmente editáveis." & vbCrLf & vbCrLf &
+                "Origem do usuário: " & userStatus & "." & vbCrLf & vbCrLf & "Origem do computador: " & compStatus & "."
             MsgBox(msgText, MsgBoxStyle.Exclamation)
         End If
     End Sub
@@ -369,7 +376,7 @@ Public Class Main
             If Not CompPolicyLoader.Close() Then allOk = False
         End If
         If Not allOk Then
-            MsgBox("Cleanup did not complete fully because the loaded resources are open in other programs.", MsgBoxStyle.Exclamation)
+            MsgBox("A limpeza não foi concluída totalmente porque os recursos carregados estão abertos em outros programas.", MsgBoxStyle.Exclamation)
         End If
     End Sub
     Sub ShowSearchDialog(Searcher As Func(Of PolicyPlusPolicy, Boolean))
@@ -470,8 +477,8 @@ Public Class Main
     Function DisplayAdmxLoadErrorReport(Failures As IEnumerable(Of AdmxLoadFailure), Optional AskContinue As Boolean = False) As MsgBoxResult
         If Failures.Count = 0 Then Return MsgBoxResult.Ok
         Dim boxStyle = If(AskContinue, MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, MsgBoxStyle.Exclamation)
-        Dim header = "Errors were encountered while adding administrative templates to the workspace."
-        Return MsgBox(header & If(AskContinue, " Continue trying to use this workspace?", "") & vbCrLf & vbCrLf &
+        Dim header = "Erros foram encontrados ao adicionar modelos administrativos ao espaço de trabalho."
+        Return MsgBox(header & If(AskContinue, " Continuar tentando usar este espaço de trabalho?", "") & vbCrLf & vbCrLf &
                String.Join(vbCrLf & vbCrLf, Failures.Select(Function(f) f.ToString)), boxStyle)
     End Function
     Function GetPreferredLanguageCode() As String
@@ -516,7 +523,7 @@ Public Class Main
                 ' Only update the last source when successfully opening a complete source
                 If OpenAdmxFolder.ClearWorkspace Then Configuration.SetValue("AdmxSource", OpenAdmxFolder.SelectedFolder)
             Catch ex As Exception
-                MsgBox("The folder could not be fully added to the workspace. " & ex.Message, MsgBoxStyle.Exclamation)
+                MsgBox("A pasta não pôde ser totalmente adicionada ao espaço de trabalho. " & ex.Message, MsgBoxStyle.Exclamation)
             End Try
             PopulateAdmxUi()
         End If
@@ -524,13 +531,13 @@ Public Class Main
     Private Sub OpenADMXFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenADMXFileToolStripMenuItem.Click
         ' Open a single ADMX file
         Using ofd As New OpenFileDialog
-            ofd.Filter = "Policy definitions files|*.admx"
-            ofd.Title = "Open ADMX file"
+            ofd.Filter = "Arquivos de definição de política|*.admx"
+            ofd.Title = "Abrir arquivo ADMX"
             If ofd.ShowDialog <> DialogResult.OK Then Exit Sub
             Try
                 DisplayAdmxLoadErrorReport(AdmxWorkspace.LoadFile(ofd.FileName, GetPreferredLanguageCode()))
             Catch ex As Exception
-                MsgBox("The ADMX file could not be added to the workspace. " & ex.Message, MsgBoxStyle.Exclamation)
+                MsgBox("O arquivo ADMX não pôde ser adicionado ao espaço de trabalho. " & ex.Message, MsgBoxStyle.Exclamation)
             End Try
             PopulateAdmxUi()
         End Using
@@ -549,9 +556,9 @@ Public Class Main
     Private Sub ComboAppliesTo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboAppliesTo.SelectedIndexChanged
         ' When the user chooses a different section to work with
         Select Case ComboAppliesTo.Text
-            Case "User"
+            Case "Usuário", "User"
                 ViewPolicyTypes = AdmxPolicySection.User
-            Case "Computer"
+            Case "Computador", "Computer"
                 ViewPolicyTypes = AdmxPolicySection.Machine
             Case Else
                 ViewPolicyTypes = AdmxPolicySection.Both
@@ -573,7 +580,7 @@ Public Class Main
         ' Make otherwise-identical pairs of user and computer policies into single dual-section policies
         ClearSelections()
         Dim deduped = PolicyProcessing.DeduplicatePolicies(AdmxWorkspace)
-        MsgBox("Deduplicated " & deduped & " policies.", MsgBoxStyle.Information)
+        MsgBox("Desduplicadas " & deduped & " políticas.", MsgBoxStyle.Information)
         UpdateCategoryListing()
         UpdatePolicyInfo()
     End Sub
@@ -590,7 +597,7 @@ Public Class Main
                     CurrentCategory = selCat
                     UpdateCategoryListing()
                 Else
-                    MsgBox("The category is not currently visible. Change the view settings and try again.", MsgBoxStyle.Exclamation)
+                    MsgBox("A categoria não está visível no momento. Altere as configurações de visualização e tente novamente.", MsgBoxStyle.Exclamation)
                 End If
             ElseIf selPol IsNot Nothing Then
                 ShowSettingEditor(selPol, Math.Min(ViewPolicyTypes, FindById.SelectedSection))
@@ -600,7 +607,7 @@ Public Class Main
             ElseIf selSup IsNot Nothing Then
                 DetailSupport.PresentDialog(selSup)
             Else
-                MsgBox("That object could not be found.", MsgBoxStyle.Exclamation)
+                MsgBox("Esse objeto não foi encontrado.", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub
@@ -609,6 +616,36 @@ Public Class Main
         If OpenPol.ShowDialog = DialogResult.OK Then
             OpenPolicyLoaders(OpenPol.SelectedUser, OpenPol.SelectedComputer, False)
             MoveToVisibleCategoryAndReload()
+        End If
+    End Sub
+    Private Sub OpenDomainGpoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenDomainGpoToolStripMenuItem.Click
+        ' Mostrar diálogo para selecionar GPO do domínio
+        Dim dlg As New OpenDomainGpo()
+        If dlg.ShowDialog() = DialogResult.OK Then
+            Dim gpo = dlg.GetSelectedGpo()
+            If gpo IsNot Nothing Then
+                ' Criar argumento para o PolicyLoader: Domain|GpoDisplayName|GpoGuid
+                Dim argument = $"{gpo.Domain}|{gpo.DisplayName}|{gpo.Guid}"
+
+                Try
+                    ' Criar loaders para usuário e computador usando o mesmo GPO
+                    Dim userLoader As New PolicyLoader(PolicyLoaderSource.DomainGpo, argument, True)
+                    Dim compLoader As New PolicyLoader(PolicyLoaderSource.DomainGpo, argument, False)
+
+                    OpenPolicyLoaders(userLoader, compLoader, False)
+                    MoveToVisibleCategoryAndReload()
+
+                    ' Salvar como último usado
+                    Configuration.SetValue("CompSourceType", CInt(PolicyLoaderSource.DomainGpo))
+                    Configuration.SetValue("CompSourceData", argument)
+                    Configuration.SetValue("UserSourceType", CInt(PolicyLoaderSource.DomainGpo))
+                    Configuration.SetValue("UserSourceData", argument)
+
+                    MsgBox($"GPO do domínio '{gpo.DisplayName}' carregado com sucesso!", MsgBoxStyle.Information)
+                Catch ex As Exception
+                    MsgBox($"Erro ao abrir GPO do domínio: {ex.Message}", MsgBoxStyle.Critical)
+                End Try
+            End If
         End If
     End Sub
     Private Sub SavePoliciesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SavePoliciesToolStripMenuItem.Click
@@ -623,23 +660,23 @@ Public Class Main
         saveComments(UserComments, UserPolicyLoader)
         saveComments(CompComments, CompPolicyLoader)
         Try
-            Dim compStatus = "not writable"
-            Dim userStatus = "not writable"
-            If CompPolicyLoader.GetWritability = PolicySourceWritability.Writable Then compStatus = CompPolicyLoader.Save
-            If UserPolicyLoader.GetWritability = PolicySourceWritability.Writable Then userStatus = UserPolicyLoader.Save
-            Configuration.SetValue("CompSourceType", CInt(CompPolicyLoader.Source))
-            Configuration.SetValue("UserSourceType", CInt(UserPolicyLoader.Source))
-            Configuration.SetValue("CompSourceData", If(CompPolicyLoader.LoaderData, ""))
-            Configuration.SetValue("UserSourceData", If(UserPolicyLoader.LoaderData, ""))
-            MsgBox("Success." & vbCrLf & vbCrLf & "User policies: " & userStatus & "." & vbCrLf & vbCrLf & "Computer policies: " & compStatus & ".", MsgBoxStyle.Information)
-        Catch ex As Exception
-            MsgBox("Saving failed!" & vbCrLf & vbCrLf & ex.Message, MsgBoxStyle.Exclamation)
+                 Dim compStatus = "não editável"
+                Dim userStatus = "não editável"
+                If CompPolicyLoader.GetWritability = PolicySourceWritability.Writable Then compStatus = CompPolicyLoader.Save
+                If UserPolicyLoader.GetWritability = PolicySourceWritability.Writable Then userStatus = UserPolicyLoader.Save
+                Configuration.SetValue("CompSourceType", CInt(CompPolicyLoader.Source))
+                Configuration.SetValue("UserSourceType", CInt(UserPolicyLoader.Source))
+                Configuration.SetValue("CompSourceData", If(CompPolicyLoader.LoaderData, ""))
+                Configuration.SetValue("UserSourceData", If(UserPolicyLoader.LoaderData, ""))
+                MsgBox("Sucesso." & vbCrLf & vbCrLf & "Políticas de usuário: " & userStatus & "." & vbCrLf & vbCrLf & "Políticas de computador: " & compStatus & ".", MsgBoxStyle.Information)
+            Catch ex As Exception
+                MsgBox("Falha ao salvar!" & vbCrLf & vbCrLf & ex.Message, MsgBoxStyle.Exclamation)
         End Try
     End Sub
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         ' Show author and version information if it was compiled into the program
-        Dim about = $"Policy Plus by Ben Nordick.{vbCrLf}{vbCrLf}Available on GitHub: Fleex255/PolicyPlus."
-        If Version.Trim() <> "" Then about &= $" Version: {Version.Trim()}."
+        Dim about = $"Policy Plus por Ben Nordick.{vbCrLf}{vbCrLf}Disponível no GitHub: Fleex255/PolicyPlus."
+        If Version.Trim() <> "" Then about &= $" Versão: {Version.Trim()}."
         MsgBox(about, MsgBoxStyle.Information)
     End Sub
     Private Sub ByTextToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ByTextToolStripMenuItem.Click
@@ -657,7 +694,7 @@ Public Class Main
         Do
             Dim nextPol = FindResults.NextPolicy
             If nextPol Is Nothing Then
-                MsgBox("There are no more results that match the filter.", MsgBoxStyle.Information)
+                MsgBox("Não há mais resultados que correspondam ao filtro.", MsgBoxStyle.Information)
                 Exit Do
             ElseIf ShouldShowPolicy(nextPol) Then
                 FocusPolicy(nextPol)
@@ -711,29 +748,29 @@ Public Class Main
             Dim fails = spol.ApplyAll(AdmxWorkspace, UserPolicySource, CompPolicySource, UserComments, CompComments)
             MoveToVisibleCategoryAndReload()
             If fails = 0 Then
-                MsgBox("Semantic Policy successfully applied.", MsgBoxStyle.Information)
+                MsgBox("Política Semântica aplicada com sucesso.", MsgBoxStyle.Information)
             Else
-                MsgBox(fails & " out of " & spol.Policies.Count & " could not be applied.", MsgBoxStyle.Exclamation)
+                MsgBox(fails & " de " & spol.Policies.Count & " não puderam ser aplicadas.", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub
     Private Sub ImportPOLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportPOLToolStripMenuItem.Click
         ' Open a POL file and write it to a policy source
         Using ofd As New OpenFileDialog
-            ofd.Filter = "POL files|*.pol"
+            ofd.Filter = "Arquivos POL|*.pol"
             If ofd.ShowDialog = DialogResult.OK Then
                 Dim pol As PolFile = Nothing
                 Try
                     pol = PolFile.Load(ofd.FileName)
                 Catch ex As Exception
-                    MsgBox("The POL file could not be loaded.", MsgBoxStyle.Exclamation)
+                    MsgBox("O arquivo POL não pôde ser carregado.", MsgBoxStyle.Exclamation)
                     Exit Sub
                 End Try
                 If OpenSection.PresentDialog(True, True) = DialogResult.OK Then
                     Dim section = If(OpenSection.SelectedSection = AdmxPolicySection.User, UserPolicySource, CompPolicySource)
                     pol.Apply(section)
                     MoveToVisibleCategoryAndReload()
-                    MsgBox("POL import successful.", MsgBoxStyle.Information)
+                    MsgBox("Importação de POL realizada com sucesso.", MsgBoxStyle.Information)
                 End If
             End If
         End Using
@@ -741,14 +778,14 @@ Public Class Main
     Private Sub ExportPOLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportPOLToolStripMenuItem.Click
         ' Create a POL file from a current policy source
         Using sfd As New SaveFileDialog
-            sfd.Filter = "POL files|*.pol"
+            sfd.Filter = "Arquivos POL|*.pol"
             If sfd.ShowDialog = DialogResult.OK AndAlso OpenSection.PresentDialog(True, True) = DialogResult.OK Then
                 Dim section = If(OpenSection.SelectedSection = AdmxPolicySection.Machine, CompPolicySource, UserPolicySource)
                 Try
                     GetOrCreatePolFromPolicySource(section).Save(sfd.FileName)
-                    MsgBox("POL exported successfully.", MsgBoxStyle.Information)
+                    MsgBox("POL exportado com sucesso.", MsgBoxStyle.Information)
                 Catch ex As Exception
-                    MsgBox("The POL file could not be saved.", MsgBoxStyle.Exclamation)
+                    MsgBox("O arquivo POL não pôde ser salvo.", MsgBoxStyle.Exclamation)
                 End Try
             End If
         End Using
@@ -777,12 +814,12 @@ Public Class Main
         Dim userIsPol = TypeOf UserPolicySource Is PolFile
         Dim compIsPol = TypeOf CompPolicySource Is PolFile
         If Not (userIsPol Or compIsPol) Then
-            MsgBox("Neither loaded source is backed by a POL file.", MsgBoxStyle.Exclamation)
+            MsgBox("Nenhuma origem carregada é baseada em arquivo POL.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         If CInt(Configuration.GetValue("EditPolDangerAcknowledged", 0)) = 0 Then
-            If MsgBox("Caution! This tool is for very advanced users. Improper modifications may result in inconsistencies in policies' states." & vbCrLf & vbCrLf &
-                      "Changes operate directly on the policy source, though they will not be committed to disk until you save. Are you sure you want to continue?",
+            If MsgBox("Cuidado! Esta ferramenta é para usuários muito avançados. Modificações inadequadas podem causar inconsistências nos estados das políticas." & vbCrLf & vbCrLf &
+                      "As alterações operam diretamente na origem da política, embora não sejam salvas em disco até você salvar. Tem certeza que deseja continuar?",
                       MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo) = MsgBoxResult.No Then Exit Sub
             Configuration.SetValue("EditPolDangerAcknowledged", 1)
         End If
@@ -807,7 +844,7 @@ Public Class Main
     Private Sub SetADMLLanguageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetADMLLanguageToolStripMenuItem.Click
         If LanguageOptions.PresentDialog(GetPreferredLanguageCode()) = DialogResult.OK Then
             Configuration.SetValue("LanguageCode", LanguageOptions.NewLanguage)
-            If MsgBox("Language changes will take effect when ADML files are next loaded. Would you like to reload the workspace now?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
+            If MsgBox("As alterações de idioma entrarão em vigor quando os arquivos ADML forem recarregados. Deseja recarregar o espaço de trabalho agora?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
                 ClearAdmxWorkspace()
                 OpenLastAdmxSource()
                 PopulateAdmxUi()

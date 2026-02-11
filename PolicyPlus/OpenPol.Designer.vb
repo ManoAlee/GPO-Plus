@@ -63,7 +63,7 @@ Partial Class OpenPol
         Me.ComputerGroup.Size = New System.Drawing.Size(224, 111)
         Me.ComputerGroup.TabIndex = 0
         Me.ComputerGroup.TabStop = False
-        Me.ComputerGroup.Text = "Computer"
+        Me.ComputerGroup.Text = "Computador"
         '
         'CompNullOption
         '
@@ -73,7 +73,7 @@ Partial Class OpenPol
         Me.CompNullOption.Size = New System.Drawing.Size(119, 17)
         Me.CompNullOption.TabIndex = 6
         Me.CompNullOption.TabStop = True
-        Me.CompNullOption.Text = "Scratch space (null)"
+        Me.CompNullOption.Text = "Espaço temporário (nulo)"
         Me.CompNullOption.UseVisualStyleBackColor = True
         '
         'CompFileBrowseButton
@@ -100,7 +100,7 @@ Partial Class OpenPol
         Me.CompFileOption.Size = New System.Drawing.Size(62, 17)
         Me.CompFileOption.TabIndex = 3
         Me.CompFileOption.TabStop = True
-        Me.CompFileOption.Text = "POL file"
+        Me.CompFileOption.Text = "Arquivo POL"
         Me.CompFileOption.UseVisualStyleBackColor = True
         '
         'CompRegistryOption
@@ -111,7 +111,7 @@ Partial Class OpenPol
         Me.CompRegistryOption.Size = New System.Drawing.Size(92, 17)
         Me.CompRegistryOption.TabIndex = 1
         Me.CompRegistryOption.TabStop = True
-        Me.CompRegistryOption.Text = "Local Registry"
+        Me.CompRegistryOption.Text = "Registro Local"
         Me.CompRegistryOption.UseVisualStyleBackColor = True
         '
         'CompLocalOption
@@ -122,7 +122,7 @@ Partial Class OpenPol
         Me.CompLocalOption.Size = New System.Drawing.Size(77, 17)
         Me.CompLocalOption.TabIndex = 0
         Me.CompLocalOption.TabStop = True
-        Me.CompLocalOption.Text = "Local GPO"
+        Me.CompLocalOption.Text = "GPO Local"
         Me.CompLocalOption.UseVisualStyleBackColor = True
         '
         'UserGroup
@@ -145,7 +145,7 @@ Partial Class OpenPol
         Me.UserGroup.Size = New System.Drawing.Size(224, 157)
         Me.UserGroup.TabIndex = 1
         Me.UserGroup.TabStop = False
-        Me.UserGroup.Text = "User"
+        Me.UserGroup.Text = "Usuário"
         '
         'UserPerUserRegOption
         '
@@ -155,7 +155,7 @@ Partial Class OpenPol
         Me.UserPerUserRegOption.Size = New System.Drawing.Size(70, 17)
         Me.UserPerUserRegOption.TabIndex = 9
         Me.UserPerUserRegOption.TabStop = True
-        Me.UserPerUserRegOption.Text = "User hive"
+        Me.UserPerUserRegOption.Text = "Hive de Usuário"
         Me.UserPerUserRegOption.UseVisualStyleBackColor = True
         '
         'UserPerUserGpoOption
@@ -166,7 +166,7 @@ Partial Class OpenPol
         Me.UserPerUserGpoOption.Size = New System.Drawing.Size(73, 17)
         Me.UserPerUserGpoOption.TabIndex = 6
         Me.UserPerUserGpoOption.TabStop = True
-        Me.UserPerUserGpoOption.Text = "User GPO"
+        Me.UserPerUserGpoOption.Text = "GPO de Usuário"
         Me.UserPerUserGpoOption.UseVisualStyleBackColor = True
         '
         'UserBrowseHiveButton
@@ -186,7 +186,7 @@ Partial Class OpenPol
         Me.UserNullOption.Size = New System.Drawing.Size(119, 17)
         Me.UserNullOption.TabIndex = 12
         Me.UserNullOption.TabStop = True
-        Me.UserNullOption.Text = "Scratch space (null)"
+        Me.UserNullOption.Text = "Espaço temporário (nulo)"
         Me.UserNullOption.UseVisualStyleBackColor = True
         '
         'UserBrowseGpoButton
@@ -236,7 +236,7 @@ Partial Class OpenPol
         Me.UserFileOption.Size = New System.Drawing.Size(62, 17)
         Me.UserFileOption.TabIndex = 3
         Me.UserFileOption.TabStop = True
-        Me.UserFileOption.Text = "POL file"
+        Me.UserFileOption.Text = "Arquivo POL"
         Me.UserFileOption.UseVisualStyleBackColor = True
         '
         'UserRegistryOption
@@ -247,7 +247,7 @@ Partial Class OpenPol
         Me.UserRegistryOption.Size = New System.Drawing.Size(92, 17)
         Me.UserRegistryOption.TabIndex = 1
         Me.UserRegistryOption.TabStop = True
-        Me.UserRegistryOption.Text = "Local Registry"
+        Me.UserRegistryOption.Text = "Registro Local"
         Me.UserRegistryOption.UseVisualStyleBackColor = True
         '
         'UserLocalOption
@@ -258,7 +258,7 @@ Partial Class OpenPol
         Me.UserLocalOption.Size = New System.Drawing.Size(77, 17)
         Me.UserLocalOption.TabIndex = 0
         Me.UserLocalOption.TabStop = True
-        Me.UserLocalOption.Text = "Local GPO"
+        Me.UserLocalOption.Text = "GPO Local"
         Me.UserLocalOption.UseVisualStyleBackColor = True
         '
         'OkButton
@@ -303,7 +303,7 @@ Partial Class OpenPol
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Open Policy Resources"
+        Me.Text = "Abrir Recursos de Política"
         Me.ComputerGroup.ResumeLayout(False)
         Me.ComputerGroup.PerformLayout()
         Me.UserGroup.ResumeLayout(False)

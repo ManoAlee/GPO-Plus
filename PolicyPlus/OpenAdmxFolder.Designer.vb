@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class OpenAdmxFolder
     Inherits System.Windows.Forms.Form
 
@@ -40,7 +40,7 @@ Partial Class OpenAdmxFolder
         LabelFromWhere.Name = "LabelFromWhere"
         LabelFromWhere.Size = New System.Drawing.Size(228, 13)
         LabelFromWhere.TabIndex = 0
-        LabelFromWhere.Text = "Where would you like to load ADMX files from?"
+        LabelFromWhere.Text = "De onde voce gostaria de carregar os arquivos ADMX?"
         '
         'OptLocalFolder
         '
@@ -50,7 +50,7 @@ Partial Class OpenAdmxFolder
         Me.OptLocalFolder.Size = New System.Drawing.Size(196, 17)
         Me.OptLocalFolder.TabIndex = 1
         Me.OptLocalFolder.TabStop = True
-        Me.OptLocalFolder.Text = "This system's PolicyDefinitions folder"
+        Me.OptLocalFolder.Text = "Pasta PolicyDefinitions deste sistema"
         Me.OptLocalFolder.UseVisualStyleBackColor = True
         '
         'OptSysvol
@@ -61,7 +61,7 @@ Partial Class OpenAdmxFolder
         Me.OptSysvol.Size = New System.Drawing.Size(133, 17)
         Me.OptSysvol.TabIndex = 2
         Me.OptSysvol.TabStop = True
-        Me.OptSysvol.Text = "The domain's SYSVOL"
+        Me.OptSysvol.Text = "SYSVOL do dominio"
         Me.OptSysvol.UseVisualStyleBackColor = True
         '
         'OptCustomFolder
@@ -72,7 +72,7 @@ Partial Class OpenAdmxFolder
         Me.OptCustomFolder.Size = New System.Drawing.Size(77, 17)
         Me.OptCustomFolder.TabIndex = 3
         Me.OptCustomFolder.TabStop = True
-        Me.OptCustomFolder.Text = "This folder:"
+        Me.OptCustomFolder.Text = "Esta pasta:"
         Me.OptCustomFolder.UseVisualStyleBackColor = True
         '
         'TextFolder
@@ -97,7 +97,7 @@ Partial Class OpenAdmxFolder
         Me.ButtonBrowse.Name = "ButtonBrowse"
         Me.ButtonBrowse.Size = New System.Drawing.Size(60, 23)
         Me.ButtonBrowse.TabIndex = 5
-        Me.ButtonBrowse.Text = "Browse"
+        Me.ButtonBrowse.Text = "Procurar"
         Me.ButtonBrowse.UseVisualStyleBackColor = True
         '
         'ClearWorkspaceCheckbox
@@ -109,7 +109,7 @@ Partial Class OpenAdmxFolder
         Me.ClearWorkspaceCheckbox.Name = "ClearWorkspaceCheckbox"
         Me.ClearWorkspaceCheckbox.Size = New System.Drawing.Size(239, 17)
         Me.ClearWorkspaceCheckbox.TabIndex = 6
-        Me.ClearWorkspaceCheckbox.Text = "Clear the workspace before adding this folder"
+        Me.ClearWorkspaceCheckbox.Text = "Limpar o espaco de trabalho antes de adicionar esta pasta"
         Me.ClearWorkspaceCheckbox.UseVisualStyleBackColor = True
         '
         'OpenAdmxFolder
@@ -134,7 +134,7 @@ Partial Class OpenAdmxFolder
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Open ADMX Folder"
+        Me.Text = "Abrir Pasta ADMX"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

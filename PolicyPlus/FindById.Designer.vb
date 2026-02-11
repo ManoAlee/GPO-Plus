@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class FindById
     Inherits System.Windows.Forms.Form
 
@@ -50,7 +50,7 @@ Partial Class FindById
         Me.GoButton.Name = "GoButton"
         Me.GoButton.Size = New System.Drawing.Size(75, 23)
         Me.GoButton.TabIndex = 2
-        Me.GoButton.Text = "Go"
+        Me.GoButton.Text = "Ir"
         Me.GoButton.UseVisualStyleBackColor = True
         '
         'FindById
@@ -70,7 +70,7 @@ Partial Class FindById
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Find by ID"
+        Me.Text = "Localizar por ID"
         CType(Me.StatusImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

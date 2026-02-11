@@ -41,7 +41,7 @@ Partial Class DownloadAdmx
         LabelWhatsThis.Name = "LabelWhatsThis"
         LabelWhatsThis.Size = New System.Drawing.Size(331, 13)
         LabelWhatsThis.TabIndex = 0
-        LabelWhatsThis.Text = "Download the full set of policy definitions (ADMX files) from Microsoft."
+        LabelWhatsThis.Text = "Baixar o conjunto completo de definições de política (arquivos ADMX) da Microsoft."
         '
         'LabelDestFolder
         '
@@ -50,7 +50,7 @@ Partial Class DownloadAdmx
         LabelDestFolder.Name = "LabelDestFolder"
         LabelDestFolder.Size = New System.Drawing.Size(89, 13)
         LabelDestFolder.TabIndex = 3
-        LabelDestFolder.Text = "Destination folder"
+        LabelDestFolder.Text = "Pasta de destino"
         '
         'TextDestFolder
         '
@@ -65,7 +65,7 @@ Partial Class DownloadAdmx
         Me.ButtonBrowse.Name = "ButtonBrowse"
         Me.ButtonBrowse.Size = New System.Drawing.Size(75, 23)
         Me.ButtonBrowse.TabIndex = 2
-        Me.ButtonBrowse.Text = "Browse"
+        Me.ButtonBrowse.Text = "Procurar"
         Me.ButtonBrowse.UseVisualStyleBackColor = True
         '
         'ProgressSpinner
@@ -83,7 +83,7 @@ Partial Class DownloadAdmx
         Me.LabelProgress.Name = "LabelProgress"
         Me.LabelProgress.Size = New System.Drawing.Size(48, 13)
         Me.LabelProgress.TabIndex = 5
-        Me.LabelProgress.Text = "Progress"
+        Me.LabelProgress.Text = "Progresso"
         Me.LabelProgress.Visible = False
         '
         'ButtonStart
@@ -92,7 +92,7 @@ Partial Class DownloadAdmx
         Me.ButtonStart.Name = "ButtonStart"
         Me.ButtonStart.Size = New System.Drawing.Size(75, 23)
         Me.ButtonStart.TabIndex = 6
-        Me.ButtonStart.Text = "Begin"
+        Me.ButtonStart.Text = "Iniciar"
         Me.ButtonStart.UseVisualStyleBackColor = True
         '
         'ButtonClose
@@ -102,7 +102,7 @@ Partial Class DownloadAdmx
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClose.TabIndex = 7
-        Me.ButtonClose.Text = "Close"
+        Me.ButtonClose.Text = "Fechar"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
         'DownloadAdmx
@@ -125,7 +125,7 @@ Partial Class DownloadAdmx
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Acquire ADMX Files"
+        Me.Text = "Adquirir Arquivos ADMX"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

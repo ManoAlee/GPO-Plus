@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class DetailProduct
     Inherits System.Windows.Forms.Form
 
@@ -59,7 +59,7 @@ Partial Class DetailProduct
         NameLabel.Name = "NameLabel"
         NameLabel.Size = New System.Drawing.Size(35, 13)
         NameLabel.TabIndex = 1
-        NameLabel.Text = "Name"
+        NameLabel.Text = "Nome"
         '
         'IdLabel
         '
@@ -68,7 +68,7 @@ Partial Class DetailProduct
         IdLabel.Name = "IdLabel"
         IdLabel.Size = New System.Drawing.Size(55, 13)
         IdLabel.TabIndex = 6
-        IdLabel.Text = "Unique ID"
+        IdLabel.Text = "ID Unico"
         '
         'DefinedLabel
         '
@@ -77,7 +77,7 @@ Partial Class DetailProduct
         DefinedLabel.Name = "DefinedLabel"
         DefinedLabel.Size = New System.Drawing.Size(55, 13)
         DefinedLabel.TabIndex = 7
-        DefinedLabel.Text = "Defined in"
+        DefinedLabel.Text = "Definido em"
         '
         'KindLabel
         '
@@ -86,7 +86,7 @@ Partial Class DetailProduct
         KindLabel.Name = "KindLabel"
         KindLabel.Size = New System.Drawing.Size(28, 13)
         KindLabel.TabIndex = 8
-        KindLabel.Text = "Kind"
+        KindLabel.Text = "Tipo"
         '
         'VersionLabel
         '
@@ -95,7 +95,7 @@ Partial Class DetailProduct
         VersionLabel.Name = "VersionLabel"
         VersionLabel.Size = New System.Drawing.Size(80, 13)
         VersionLabel.TabIndex = 9
-        VersionLabel.Text = "Version number"
+        VersionLabel.Text = "Numero da versao"
         '
         'ParentLabel
         '
@@ -104,7 +104,7 @@ Partial Class DetailProduct
         ParentLabel.Name = "ParentLabel"
         ParentLabel.Size = New System.Drawing.Size(38, 13)
         ParentLabel.TabIndex = 12
-        ParentLabel.Text = "Parent"
+        ParentLabel.Text = "Pai"
         '
         'ChildrenLabel
         '
@@ -114,7 +114,7 @@ Partial Class DetailProduct
         ChildrenLabel.Name = "ChildrenLabel"
         ChildrenLabel.Size = New System.Drawing.Size(67, 13)
         ChildrenLabel.TabIndex = 14
-        ChildrenLabel.Text = "Subproducts"
+        ChildrenLabel.Text = "Subprodutos"
         '
         'DisplayCodeLabel
         '
@@ -123,7 +123,7 @@ Partial Class DetailProduct
         DisplayCodeLabel.Name = "DisplayCodeLabel"
         DisplayCodeLabel.Size = New System.Drawing.Size(68, 13)
         DisplayCodeLabel.TabIndex = 16
-        DisplayCodeLabel.Text = "Display code"
+        DisplayCodeLabel.Text = "Codigo de exibicao"
         '
         'NameTextbox
         '
@@ -171,7 +171,7 @@ Partial Class DetailProduct
         Me.ParentButton.Name = "ParentButton"
         Me.ParentButton.Size = New System.Drawing.Size(75, 23)
         Me.ParentButton.TabIndex = 10
-        Me.ParentButton.Text = "Details"
+        Me.ParentButton.Text = "Detalhes"
         Me.ParentButton.UseVisualStyleBackColor = True
         '
         'ParentTextbox
@@ -197,12 +197,12 @@ Partial Class DetailProduct
         '
         'ChVersion
         '
-        Me.ChVersion.Text = "Version"
+        Me.ChVersion.Text = "Versao"
         Me.ChVersion.Width = 51
         '
         'ChName
         '
-        Me.ChName.Text = "Name"
+        Me.ChName.Text = "Nome"
         Me.ChName.Width = 176
         '
         'CloseButton
@@ -212,7 +212,7 @@ Partial Class DetailProduct
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 15
-        Me.CloseButton.Text = "Close"
+        Me.CloseButton.Text = "Fechar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'VersionTextbox
@@ -255,7 +255,7 @@ Partial Class DetailProduct
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Product Details"
+        Me.Text = "Detalhes do Produto"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

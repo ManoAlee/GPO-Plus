@@ -1,4 +1,4 @@
-﻿Imports System.ComponentModel
+Imports System.ComponentModel
 Public Class FindResults
     Dim AdmxWorkspace As AdmxBundle
     Dim SearchFunc As Func(Of PolicyPlusPolicy, Boolean)
@@ -27,7 +27,7 @@ Public Class FindResults
     Public Function PresentDialog() As DialogResult
         ' Open the dialog normally, like from the main form
         If Not HasSearched Then
-            MsgBox("No search has been run yet, so there are no results to display.", MsgBoxStyle.Information)
+            MsgBox("Nenhuma pesquisa foi executada ainda, portanto nao ha resultados para exibir.", MsgBoxStyle.Information)
             Return DialogResult.Cancel
         End If
         CancelingSearch = False

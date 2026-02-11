@@ -48,7 +48,7 @@ Partial Class FilterOptions
         PolicyTypeLabel.Name = "PolicyTypeLabel"
         PolicyTypeLabel.Size = New System.Drawing.Size(58, 13)
         PolicyTypeLabel.TabIndex = 1
-        PolicyTypeLabel.Text = "Policy type"
+        PolicyTypeLabel.Text = "Tipo de política"
         '
         'PolicyStateLabel
         '
@@ -57,7 +57,7 @@ Partial Class FilterOptions
         PolicyStateLabel.Name = "PolicyStateLabel"
         PolicyStateLabel.Size = New System.Drawing.Size(67, 13)
         PolicyStateLabel.TabIndex = 3
-        PolicyStateLabel.Text = "Current state"
+        PolicyStateLabel.Text = "Estado atual"
         '
         'CommentedLabel
         '
@@ -66,7 +66,7 @@ Partial Class FilterOptions
         CommentedLabel.Name = "CommentedLabel"
         CommentedLabel.Size = New System.Drawing.Size(63, 13)
         CommentedLabel.TabIndex = 5
-        CommentedLabel.Text = "Commented"
+        CommentedLabel.Text = "Comentado"
         '
         'PolicyTypeCombobox
         '
@@ -117,7 +117,7 @@ Partial Class FilterOptions
         Me.ResetButton.Name = "ResetButton"
         Me.ResetButton.Size = New System.Drawing.Size(75, 23)
         Me.ResetButton.TabIndex = 7
-        Me.ResetButton.Text = "Reset"
+        Me.ResetButton.Text = "Redefinir"
         Me.ResetButton.UseVisualStyleBackColor = True
         '
         'RequirementsBox
@@ -155,7 +155,7 @@ Partial Class FilterOptions
         Me.MatchBlankSupportCheckbox.Name = "MatchBlankSupportCheckbox"
         Me.MatchBlankSupportCheckbox.Size = New System.Drawing.Size(282, 17)
         Me.MatchBlankSupportCheckbox.TabIndex = 0
-        Me.MatchBlankSupportCheckbox.Text = "Match policies with missing or blank support definitions"
+        Me.MatchBlankSupportCheckbox.Text = "Incluir políticas com definições de suporte ausentes ou em branco"
         Me.MatchBlankSupportCheckbox.UseVisualStyleBackColor = True
         '
         'AlwaysMatchAnyCheckbox
@@ -167,7 +167,7 @@ Partial Class FilterOptions
         Me.AlwaysMatchAnyCheckbox.Name = "AlwaysMatchAnyCheckbox"
         Me.AlwaysMatchAnyCheckbox.Size = New System.Drawing.Size(303, 17)
         Me.AlwaysMatchAnyCheckbox.TabIndex = 0
-        Me.AlwaysMatchAnyCheckbox.Text = "Match a policy if at least one selected product is supported"
+        Me.AlwaysMatchAnyCheckbox.Text = "Incluir política se pelo menos um produto selecionado for suportado"
         Me.AlwaysMatchAnyCheckbox.UseVisualStyleBackColor = True
         '
         'SupportedCheckbox
@@ -177,7 +177,7 @@ Partial Class FilterOptions
         Me.SupportedCheckbox.Name = "SupportedCheckbox"
         Me.SupportedCheckbox.Size = New System.Drawing.Size(90, 17)
         Me.SupportedCheckbox.TabIndex = 9
-        Me.SupportedCheckbox.Text = "Supported on"
+        Me.SupportedCheckbox.Text = "Suportado em"
         Me.SupportedCheckbox.UseVisualStyleBackColor = True
         '
         'FilterOptions
@@ -204,7 +204,7 @@ Partial Class FilterOptions
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Filter Options"
+        Me.Text = "Opções de Filtro"
         Me.RequirementsBox.ResumeLayout(False)
         Me.RequirementsBox.PerformLayout()
         Me.ResumeLayout(False)

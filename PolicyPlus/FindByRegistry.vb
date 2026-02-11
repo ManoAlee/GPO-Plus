@@ -1,4 +1,4 @@
-﻿Public Class FindByRegistry
+Public Class FindByRegistry
     Public Searcher As Func(Of PolicyPlusPolicy, Boolean)
     Private Sub FindByRegistry_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.Escape Then DialogResult = DialogResult.Cancel
@@ -7,11 +7,11 @@
         Dim keyName = KeyTextbox.Text.ToLowerInvariant
         Dim valName = ValueTextbox.Text.ToLowerInvariant
         If keyName = "" And valName = "" Then
-            MsgBox("Please enter search terms.", MsgBoxStyle.Exclamation)
+            MsgBox("Por favor, insira termos de pesquisa.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         If {"HKLM\", "HKCU\", "HKEY_LOCAL_MACHINE\", "HKEY_CURRENT_USER\"}.Any(Function(bad) keyName.StartsWith(bad, StringComparison.InvariantCultureIgnoreCase)) Then
-            MsgBox("Policies' root keys are determined only by their section. Remove the root key from the search terms and try again.", MsgBoxStyle.Exclamation)
+            MsgBox("As chaves raiz das politicas sao determinadas apenas pela secao. Remova a chave raiz dos termos de pesquisa e tente novamente.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         Searcher = Function(Policy As PolicyPlusPolicy) As Boolean

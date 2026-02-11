@@ -1,4 +1,4 @@
-﻿Imports System.DirectoryServices.ActiveDirectory
+Imports System.DirectoryServices.ActiveDirectory
 Public Class OpenAdmxFolder
     Dim SysvolPolicyDefinitionsPath As String = ""
     Public SelectedFolder As String
@@ -36,7 +36,7 @@ Public Class OpenAdmxFolder
             ClearWorkspace = ClearWorkspaceCheckbox.Checked
             DialogResult = DialogResult.OK
         Else
-            MsgBox("The folder you specified does not exist.", MsgBoxStyle.Exclamation)
+            MsgBox("A pasta especificada nao existe.", MsgBoxStyle.Exclamation)
         End If
     End Sub
     Private Sub ButtonBrowse_Click(sender As Object, e As EventArgs) Handles ButtonBrowse.Click

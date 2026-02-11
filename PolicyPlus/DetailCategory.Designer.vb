@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class DetailCategory
     Inherits System.Windows.Forms.Form
 
@@ -69,7 +69,7 @@ Partial Class DetailCategory
         DefinedLabel.Name = "DefinedLabel"
         DefinedLabel.Size = New System.Drawing.Size(55, 13)
         DefinedLabel.TabIndex = 9
-        DefinedLabel.Text = "Defined in"
+        DefinedLabel.Text = "Definido em"
         '
         'DisplayCode
         '
@@ -78,7 +78,7 @@ Partial Class DetailCategory
         DisplayCode.Name = "DisplayCode"
         DisplayCode.Size = New System.Drawing.Size(68, 13)
         DisplayCode.TabIndex = 10
-        DisplayCode.Text = "Display code"
+        DisplayCode.Text = "Código de exibição"
         '
         'InfoCodeLabel
         '
@@ -87,7 +87,7 @@ Partial Class DetailCategory
         InfoCodeLabel.Name = "InfoCodeLabel"
         InfoCodeLabel.Size = New System.Drawing.Size(52, 13)
         InfoCodeLabel.TabIndex = 11
-        InfoCodeLabel.Text = "Info code"
+        InfoCodeLabel.Text = "Código de informação"
         '
         'ParentLabel
         '
@@ -96,7 +96,7 @@ Partial Class DetailCategory
         ParentLabel.Name = "ParentLabel"
         ParentLabel.Size = New System.Drawing.Size(38, 13)
         ParentLabel.TabIndex = 12
-        ParentLabel.Text = "Parent"
+        ParentLabel.Text = "Pai"
         '
         'NameTextbox
         '
@@ -152,7 +152,7 @@ Partial Class DetailCategory
         Me.ParentButton.Name = "ParentButton"
         Me.ParentButton.Size = New System.Drawing.Size(75, 23)
         Me.ParentButton.TabIndex = 6
-        Me.ParentButton.Text = "Details"
+        Me.ParentButton.Text = "Detalhes"
         Me.ParentButton.UseVisualStyleBackColor = True
         '
         'CloseButton
@@ -162,7 +162,7 @@ Partial Class DetailCategory
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 13
-        Me.CloseButton.Text = "Close"
+        Me.CloseButton.Text = "Fechar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'DetailCategory
@@ -193,7 +193,7 @@ Partial Class DetailCategory
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Category Details"
+        Me.Text = "Detalhes da Categoria"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

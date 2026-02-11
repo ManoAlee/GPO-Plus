@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class InspectPolicyElements
     Inherits System.Windows.Forms.Form
 
@@ -79,7 +79,7 @@ Partial Class InspectPolicyElements
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 4
-        Me.CloseButton.Text = "Close"
+        Me.CloseButton.Text = "Fechar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'InspectPolicyElements

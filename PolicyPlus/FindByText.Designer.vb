@@ -45,7 +45,7 @@ Partial Class FindByText
         Me.TitleCheckbox.Name = "TitleCheckbox"
         Me.TitleCheckbox.Size = New System.Drawing.Size(54, 17)
         Me.TitleCheckbox.TabIndex = 1
-        Me.TitleCheckbox.Text = "In title"
+        Me.TitleCheckbox.Text = "No título"
         Me.TitleCheckbox.UseVisualStyleBackColor = True
         '
         'DescriptionCheckbox
@@ -57,7 +57,7 @@ Partial Class FindByText
         Me.DescriptionCheckbox.Name = "DescriptionCheckbox"
         Me.DescriptionCheckbox.Size = New System.Drawing.Size(89, 17)
         Me.DescriptionCheckbox.TabIndex = 2
-        Me.DescriptionCheckbox.Text = "In description"
+        Me.DescriptionCheckbox.Text = "Na descrição"
         Me.DescriptionCheckbox.UseVisualStyleBackColor = True
         '
         'CommentCheckbox
@@ -69,7 +69,7 @@ Partial Class FindByText
         Me.CommentCheckbox.Name = "CommentCheckbox"
         Me.CommentCheckbox.Size = New System.Drawing.Size(81, 17)
         Me.CommentCheckbox.TabIndex = 3
-        Me.CommentCheckbox.Text = "In comment"
+        Me.CommentCheckbox.Text = "No comentário"
         Me.CommentCheckbox.UseVisualStyleBackColor = True
         '
         'SearchButton
@@ -78,7 +78,7 @@ Partial Class FindByText
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(75, 23)
         Me.SearchButton.TabIndex = 4
-        Me.SearchButton.Text = "Search"
+        Me.SearchButton.Text = "Pesquisar"
         Me.SearchButton.UseVisualStyleBackColor = True
         '
         'FindByText
@@ -100,7 +100,7 @@ Partial Class FindByText
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Find by Text"
+        Me.Text = "Localizar por Texto"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

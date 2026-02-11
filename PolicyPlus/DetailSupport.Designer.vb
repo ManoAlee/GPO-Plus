@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class DetailSupport
     Inherits System.Windows.Forms.Form
 
@@ -53,7 +53,7 @@ Partial Class DetailSupport
         NameLabel.Name = "NameLabel"
         NameLabel.Size = New System.Drawing.Size(35, 13)
         NameLabel.TabIndex = 5
-        NameLabel.Text = "Name"
+        NameLabel.Text = "Nome"
         '
         'IdLabel
         '
@@ -62,7 +62,7 @@ Partial Class DetailSupport
         IdLabel.Name = "IdLabel"
         IdLabel.Size = New System.Drawing.Size(55, 13)
         IdLabel.TabIndex = 6
-        IdLabel.Text = "Unique ID"
+        IdLabel.Text = "ID Unico"
         '
         'DefinedLabel
         '
@@ -71,7 +71,7 @@ Partial Class DetailSupport
         DefinedLabel.Name = "DefinedLabel"
         DefinedLabel.Size = New System.Drawing.Size(55, 13)
         DefinedLabel.TabIndex = 7
-        DefinedLabel.Text = "Defined in"
+        DefinedLabel.Text = "Definido em"
         '
         'DisplayCodeLabel
         '
@@ -80,7 +80,7 @@ Partial Class DetailSupport
         DisplayCodeLabel.Name = "DisplayCodeLabel"
         DisplayCodeLabel.Size = New System.Drawing.Size(68, 13)
         DisplayCodeLabel.TabIndex = 8
-        DisplayCodeLabel.Text = "Display code"
+        DisplayCodeLabel.Text = "Codigo de exibicao"
         '
         'LogicLabel
         '
@@ -89,7 +89,7 @@ Partial Class DetailSupport
         LogicLabel.Name = "LogicLabel"
         LogicLabel.Size = New System.Drawing.Size(64, 13)
         LogicLabel.TabIndex = 9
-        LogicLabel.Text = "Composition"
+        LogicLabel.Text = "Composicao"
         '
         'ProductsLabel
         '
@@ -98,7 +98,7 @@ Partial Class DetailSupport
         ProductsLabel.Name = "ProductsLabel"
         ProductsLabel.Size = New System.Drawing.Size(49, 13)
         ProductsLabel.TabIndex = 11
-        ProductsLabel.Text = "Products"
+        ProductsLabel.Text = "Produtos"
         '
         'NameTextbox
         '
@@ -156,7 +156,7 @@ Partial Class DetailSupport
         '
         'ChName
         '
-        Me.ChName.Text = "Name"
+        Me.ChName.Text = "Nome"
         Me.ChName.Width = 158
         '
         'ChMinVer
@@ -176,7 +176,7 @@ Partial Class DetailSupport
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 13
-        Me.CloseButton.Text = "Close"
+        Me.CloseButton.Text = "Fechar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'DetailSupport
@@ -206,7 +206,7 @@ Partial Class DetailSupport
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Support Details"
+        Me.Text = "Detalhes de Suporte"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -1,4 +1,4 @@
-﻿Public Class EditPolDelete
+Public Class EditPolDelete
     Public Function PresentDialog(ContainerKey As String) As DialogResult
         OptClearFirst.Checked = False
         OptDeleteOne.Checked = False
@@ -11,7 +11,7 @@
         If OptClearFirst.Checked Or OptPurge.Checked Then DialogResult = DialogResult.OK
         If OptDeleteOne.Checked Then
             If TextValueName.Text = "" Then
-                MsgBox("You must enter a value name.", MsgBoxStyle.Exclamation)
+                MsgBox("Voce deve inserir um nome de valor.", MsgBoxStyle.Exclamation)
                 Exit Sub
             End If
             DialogResult = DialogResult.OK

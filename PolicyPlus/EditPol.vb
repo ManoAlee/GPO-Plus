@@ -1,4 +1,4 @@
-﻿Imports Microsoft.Win32
+Imports Microsoft.Win32
 Public Class EditPol
     Public EditingPol As PolFile
     Dim EditingUserSource As Boolean
@@ -114,12 +114,12 @@ Public Class EditPol
         Dim keyName = EditPolKey.PresentDialog("")
         If keyName = "" Then Exit Sub
         If Not IsKeyNameValid(keyName) Then
-            MsgBox("The key name is not valid.", MsgBoxStyle.Exclamation)
+            MsgBox("O nome da chave nao e valido.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         Dim containerKey As String = If(LsvPol.SelectedItems.Count > 0, LsvPol.SelectedItems(0).Tag, "")
         If Not IsKeyNameAvailable(containerKey, keyName) Then
-            MsgBox("The key name is already taken.", MsgBoxStyle.Exclamation)
+            MsgBox("O nome da chave ja esta em uso.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         Dim newPath = If(containerKey = "", keyName, containerKey & "\" & keyName)
@@ -147,7 +147,7 @@ Public Class EditPol
                 Return Nothing
             End If
         Else
-            MsgBox("This value kind is not supported.", MsgBoxStyle.Exclamation)
+            MsgBox("Este tipo de valor nao e suportado.", MsgBoxStyle.Exclamation)
             Return Nothing
         End If
     End Function
@@ -209,7 +209,7 @@ Public Class EditPol
         Dim containerKey As String = ""
         Dim tag = LsvPol.SelectedItems(0).Tag
         If TypeOf tag Is String Then
-            If MsgBox("Are you sure you want to remove this key and all its contents?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo) = MsgBoxResult.No Then Exit Sub
+            If MsgBox("Tem certeza que deseja remover esta chave e todo seu conteudo?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo) = MsgBoxResult.No Then Exit Sub
             Dim keyPath As String = tag
             If keyPath.Contains("\") Then containerKey = keyPath.Remove(keyPath.LastIndexOf("\"c))
             Dim removeKey As Action(Of String)

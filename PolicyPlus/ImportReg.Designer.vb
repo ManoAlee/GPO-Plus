@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ImportReg
     Inherits System.Windows.Forms.Form
 
@@ -79,7 +79,7 @@ Partial Class ImportReg
         Me.ButtonImport.Name = "ButtonImport"
         Me.ButtonImport.Size = New System.Drawing.Size(75, 23)
         Me.ButtonImport.TabIndex = 4
-        Me.ButtonImport.Text = "Import"
+        Me.ButtonImport.Text = "Importar"
         Me.ButtonImport.UseVisualStyleBackColor = True
         '
         'ImportReg
@@ -102,7 +102,7 @@ Partial Class ImportReg
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Import REG"
+        Me.Text = "Importar REG"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

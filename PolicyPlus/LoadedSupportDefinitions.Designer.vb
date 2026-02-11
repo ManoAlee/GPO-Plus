@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class LoadedSupportDefinitions
     Inherits System.Windows.Forms.Form
 
@@ -70,7 +70,7 @@ Partial Class LoadedSupportDefinitions
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClose.TabIndex = 3
-        Me.ButtonClose.Text = "Close"
+        Me.ButtonClose.Text = "Fechar"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
         'TextFilter

@@ -49,7 +49,7 @@ Partial Class EditSetting
         Me.CommentLabel.Name = "CommentLabel"
         Me.CommentLabel.Size = New System.Drawing.Size(51, 13)
         Me.CommentLabel.TabIndex = 2
-        Me.CommentLabel.Text = "Comment"
+        Me.CommentLabel.Text = "Comentário"
         '
         'SupportedLabel
         '
@@ -58,7 +58,7 @@ Partial Class EditSetting
         Me.SupportedLabel.Name = "SupportedLabel"
         Me.SupportedLabel.Size = New System.Drawing.Size(71, 13)
         Me.SupportedLabel.TabIndex = 4
-        Me.SupportedLabel.Text = "Supported on"
+        Me.SupportedLabel.Text = "Suportado em"
         '
         'SectionLabel
         '
@@ -67,7 +67,7 @@ Partial Class EditSetting
         SectionLabel.Name = "SectionLabel"
         SectionLabel.Size = New System.Drawing.Size(54, 13)
         SectionLabel.TabIndex = 12
-        SectionLabel.Text = "Editing for"
+        SectionLabel.Text = "Editando para"
         '
         'SettingNameLabel
         '
@@ -76,7 +76,7 @@ Partial Class EditSetting
         Me.SettingNameLabel.Name = "SettingNameLabel"
         Me.SettingNameLabel.Size = New System.Drawing.Size(614, 13)
         Me.SettingNameLabel.TabIndex = 0
-        Me.SettingNameLabel.Text = "Policy name"
+        Me.SettingNameLabel.Text = "Nome da política"
         '
         'CommentTextbox
         '
@@ -106,7 +106,7 @@ Partial Class EditSetting
         Me.NotConfiguredOption.Size = New System.Drawing.Size(96, 17)
         Me.NotConfiguredOption.TabIndex = 1
         Me.NotConfiguredOption.TabStop = True
-        Me.NotConfiguredOption.Text = "Not Configured"
+        Me.NotConfiguredOption.Text = "Não Configurado"
         Me.NotConfiguredOption.UseVisualStyleBackColor = True
         '
         'EnabledOption
@@ -117,7 +117,7 @@ Partial Class EditSetting
         Me.EnabledOption.Size = New System.Drawing.Size(64, 17)
         Me.EnabledOption.TabIndex = 2
         Me.EnabledOption.TabStop = True
-        Me.EnabledOption.Text = "Enabled"
+        Me.EnabledOption.Text = "Habilitado"
         Me.EnabledOption.UseVisualStyleBackColor = True
         '
         'DisabledOption
@@ -128,7 +128,7 @@ Partial Class EditSetting
         Me.DisabledOption.Size = New System.Drawing.Size(66, 17)
         Me.DisabledOption.TabIndex = 3
         Me.DisabledOption.TabStop = True
-        Me.DisabledOption.Text = "Disabled"
+        Me.DisabledOption.Text = "Desabilitado"
         Me.DisabledOption.UseVisualStyleBackColor = True
         '
         'ExtraOptionsPanel
@@ -167,7 +167,7 @@ Partial Class EditSetting
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 104
-        Me.CloseButton.Text = "Cancel"
+        Me.CloseButton.Text = "Cancelar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'OkButton
@@ -196,7 +196,7 @@ Partial Class EditSetting
         '
         Me.SectionDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SectionDropdown.FormattingEnabled = True
-        Me.SectionDropdown.Items.AddRange(New Object() {"User", "Computer"})
+        Me.SectionDropdown.Items.AddRange(New Object() {"Usuário", "Computador"})
         Me.SectionDropdown.Location = New System.Drawing.Point(72, 25)
         Me.SectionDropdown.Name = "SectionDropdown"
         Me.SectionDropdown.Size = New System.Drawing.Size(112, 21)
@@ -209,7 +209,7 @@ Partial Class EditSetting
         Me.ApplyButton.Name = "ApplyButton"
         Me.ApplyButton.Size = New System.Drawing.Size(75, 23)
         Me.ApplyButton.TabIndex = 105
-        Me.ApplyButton.Text = "Apply"
+        Me.ApplyButton.Text = "Aplicar"
         Me.ApplyButton.UseVisualStyleBackColor = True
         '
         'EditSetting
@@ -241,7 +241,7 @@ Partial Class EditSetting
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Edit Policy Setting"
+        Me.Text = "Editar Configuração de Política"
         Me.ExtraOptionsPanel.ResumeLayout(False)
         Me.ExtraOptionsPanel.PerformLayout()
         Me.ResumeLayout(False)

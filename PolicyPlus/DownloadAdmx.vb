@@ -1,4 +1,4 @@
-﻿Imports System.ComponentModel
+Imports System.ComponentModel
 Public Class DownloadAdmx
     Const MicrosoftMsiDownloadLink As String = "https://download.microsoft.com/download/f35d3000-b6c9-4ca6-bedc-5e4ec15a6b7a/Administrative%20Templates%20(admx)%20for%20Windows%2011%20Sep%202025%20Update.msi"
     Const PolicyDefinitionsMsiSubdirectory As String = "\Microsoft Group Policy\Windows 11 Sep 2025 Update (25H2)\PolicyDefinitions"
@@ -115,7 +115,7 @@ Public Class DownloadAdmx
                                       setProgress("Done.")
                                       Invoke(Sub()
                                                  SetIsBusy(False)
-                                                 If MsgBox("ADMX files downloaded successfully. Open them now?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
+                                                 If MsgBox("Arquivos ADMX baixados com sucesso. Deseja abri-los agora?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
                                                      NewPolicySourceFolder = destination
                                                  End If
                                                  DialogResult = DialogResult.OK
@@ -123,7 +123,7 @@ Public Class DownloadAdmx
                                   Catch ex As Exception
                                       Invoke(Sub()
                                                  SetIsBusy(False)
-                                                 MsgBox("Failed to " & failPhase & ".", MsgBoxStyle.Exclamation)
+                                                 MsgBox("Falha ao " & failPhase & ".", MsgBoxStyle.Exclamation)
                                              End Sub)
                                   End Try
                               End Sub)

@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ExportReg
     Inherits System.Windows.Forms.Form
 
@@ -134,7 +134,7 @@ Partial Class ExportReg
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Export REG"
+        Me.Text = "Exportar REG"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -1,4 +1,4 @@
-﻿Public Class FindByText
+Public Class FindByText
     Dim CommentSources() As Dictionary(Of String, String)
     Public Searcher As Func(Of PolicyPlusPolicy, Boolean)
     Public Function PresentDialog(ParamArray CommentDicts() As Dictionary(Of String, String)) As DialogResult
@@ -11,14 +11,14 @@
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         Dim text = StringTextbox.Text
         If text = "" Then
-            MsgBox("Please enter search terms.", MsgBoxStyle.Exclamation)
+            MsgBox("Por favor, insira termos de pesquisa.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         Dim checkTitle = TitleCheckbox.Checked
         Dim checkDesc = DescriptionCheckbox.Checked
         Dim checkComment = CommentCheckbox.Checked
         If Not (checkTitle Or checkDesc Or checkComment) Then
-            MsgBox("At least one attribute must be searched. Check one of the boxes and try again.", MsgBoxStyle.Exclamation)
+            MsgBox("Pelo menos um atributo deve ser pesquisado. Marque uma das caixas e tente novamente.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         Searcher = Function(Policy As PolicyPlusPolicy) As Boolean

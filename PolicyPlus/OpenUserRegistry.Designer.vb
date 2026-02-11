@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class OpenUserRegistry
     Inherits System.Windows.Forms.Form
 
@@ -75,7 +75,7 @@ Partial Class OpenUserRegistry
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Open User Hive"
+        Me.Text = "Abrir Hive de Usuario"
         Me.ResumeLayout(False)
 
     End Sub

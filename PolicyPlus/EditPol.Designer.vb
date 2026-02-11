@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class EditPol
     Inherits System.Windows.Forms.Form
 
@@ -59,7 +59,7 @@ Partial Class EditPol
         '
         'ChValue
         '
-        Me.ChValue.Text = "Value"
+        Me.ChValue.Text = "Valor"
         Me.ChValue.Width = 160
         '
         'ButtonSave
@@ -78,7 +78,7 @@ Partial Class EditPol
         Me.ButtonAddKey.Name = "ButtonAddKey"
         Me.ButtonAddKey.Size = New System.Drawing.Size(75, 23)
         Me.ButtonAddKey.TabIndex = 3
-        Me.ButtonAddKey.Text = "Add Key"
+        Me.ButtonAddKey.Text = "Adicionar Chave"
         Me.ButtonAddKey.UseVisualStyleBackColor = True
         '
         'ButtonAddValue
@@ -87,7 +87,7 @@ Partial Class EditPol
         Me.ButtonAddValue.Name = "ButtonAddValue"
         Me.ButtonAddValue.Size = New System.Drawing.Size(87, 23)
         Me.ButtonAddValue.TabIndex = 4
-        Me.ButtonAddValue.Text = "Add Value"
+        Me.ButtonAddValue.Text = "Adicionar Valor"
         Me.ButtonAddValue.UseVisualStyleBackColor = True
         '
         'ButtonDeleteValue
@@ -159,7 +159,7 @@ Partial Class EditPol
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Edit Raw POL"
+        Me.Text = "Editar POL Bruto"
         Me.ResumeLayout(False)
 
     End Sub

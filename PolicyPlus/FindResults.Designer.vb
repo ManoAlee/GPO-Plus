@@ -61,12 +61,12 @@ Partial Class FindResults
         '
         'ChTitle
         '
-        Me.ChTitle.Text = "Title"
+        Me.ChTitle.Text = "Título"
         Me.ChTitle.Width = 222
         '
         'ChCategory
         '
-        Me.ChCategory.Text = "Category"
+        Me.ChCategory.Text = "Categoria"
         Me.ChCategory.Width = 99
         '
         'ProgressLabel
@@ -76,7 +76,7 @@ Partial Class FindResults
         Me.ProgressLabel.Name = "ProgressLabel"
         Me.ProgressLabel.Size = New System.Drawing.Size(109, 13)
         Me.ProgressLabel.TabIndex = 2
-        Me.ProgressLabel.Text = "Results: 0 (searching)"
+        Me.ProgressLabel.Text = "Resultados: 0 (pesquisando)"
         '
         'CloseButton
         '
@@ -86,7 +86,7 @@ Partial Class FindResults
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 4
-        Me.CloseButton.Text = "Close"
+        Me.CloseButton.Text = "Fechar"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'GoButton
@@ -96,7 +96,7 @@ Partial Class FindResults
         Me.GoButton.Name = "GoButton"
         Me.GoButton.Size = New System.Drawing.Size(75, 23)
         Me.GoButton.TabIndex = 3
-        Me.GoButton.Text = "Go"
+        Me.GoButton.Text = "Ir"
         Me.GoButton.UseVisualStyleBackColor = True
         '
         'StopButton
@@ -106,7 +106,7 @@ Partial Class FindResults
         Me.StopButton.Name = "StopButton"
         Me.StopButton.Size = New System.Drawing.Size(50, 23)
         Me.StopButton.TabIndex = 0
-        Me.StopButton.Text = "Stop"
+        Me.StopButton.Text = "Parar"
         Me.StopButton.UseVisualStyleBackColor = True
         '
         'FindResults
@@ -128,7 +128,7 @@ Partial Class FindResults
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Search Results"
+        Me.Text = "Resultados da Pesquisa"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

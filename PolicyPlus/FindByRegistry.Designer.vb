@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class FindByRegistry
     Inherits System.Windows.Forms.Form
 
@@ -38,7 +38,7 @@ Partial Class FindByRegistry
         KeyPathLabel.Name = "KeyPathLabel"
         KeyPathLabel.Size = New System.Drawing.Size(90, 13)
         KeyPathLabel.TabIndex = 0
-        KeyPathLabel.Text = "Key path or name"
+        KeyPathLabel.Text = "Caminho ou nome da chave"
         '
         'ValueLabel
         '
@@ -47,7 +47,7 @@ Partial Class FindByRegistry
         ValueLabel.Name = "ValueLabel"
         ValueLabel.Size = New System.Drawing.Size(63, 13)
         ValueLabel.TabIndex = 2
-        ValueLabel.Text = "Value name"
+        ValueLabel.Text = "Nome do valor"
         '
         'KeyTextbox
         '
@@ -69,7 +69,7 @@ Partial Class FindByRegistry
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(75, 23)
         Me.SearchButton.TabIndex = 3
-        Me.SearchButton.Text = "Search"
+        Me.SearchButton.Text = "Pesquisar"
         Me.SearchButton.UseVisualStyleBackColor = True
         '
         'FindByRegistry
@@ -91,7 +91,7 @@ Partial Class FindByRegistry
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Find by Registry"
+        Me.Text = "Localizar por Registro"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

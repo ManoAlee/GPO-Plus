@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ImportSpol
     Inherits System.Windows.Forms.Form
 
@@ -112,7 +112,7 @@ Partial Class ImportSpol
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Import Semantic Policy"
+        Me.Text = "Importar Politica Semantica"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

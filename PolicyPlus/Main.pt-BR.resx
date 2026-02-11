@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" msdata:Ordinal="5" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="OpenADMXFolderToolStripMenuItem.Text" xml:space="preserve">
+    <value>Abrir Pasta ADMX</value>
+  </data>
+  <data name="OpenADMXFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Abrir Arquivo ADMX</value>
+  </data>
+  <data name="SetADMLLanguageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Definir Idioma ADML</value>
+  </data>
+  <data name="CloseADMXWorkspaceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fechar Workspace ADMX</value>
+  </data>
+  <data name="OpenDomainGpoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Abrir GPO do Domínio</value>
+  </data>
+  <data name="OpenPolicyResourcesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Abrir Recursos de Política</value>
+  </data>
+  <data name="SavePoliciesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salvar Políticas</value>
+  </data>
+  <data name="EditRawPOLToolStripMenuItem.Text" xml:space="preserve">
+    <value>Editar POL Bruto</value>
+  </data>
+  <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="ViewToolStripMenuItem.Text" xml:space="preserve">
+    <value>Visualizar</value>
+  </data>
+  <data name="EmptyCategoriesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Categorias Vazias</value>
+  </data>
+  <data name="OnlyFilteredObjectsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Apenas Políticas Filtradas</value>
+  </data>
+  <data name="FilterOptionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Opções de Filtro</value>
+  </data>
+  <data name="DeduplicatePoliciesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Desduplicar Políticas</value>
+  </data>
+  <data name="LoadedADMXFilesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Arquivos ADMX Carregados</value>
+  </data>
+  <data name="AllProductsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Todos os Produtos</value>
+  </data>
+  <data name="AllSupportDefinitionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Todas as Definições de Suporte</value>
+  </data>
+  <data name="FindToolStripMenuItem.Text" xml:space="preserve">
+    <value>Localizar</value>
+  </data>
+  <data name="ByIDToolStripMenuItem.Text" xml:space="preserve">
+    <value>Por ID</value>
+  </data>
+  <data name="ByTextToolStripMenuItem.Text" xml:space="preserve">
+    <value>Por Texto</value>
+  </data>
+  <data name="ByRegistryToolStripMenuItem.Text" xml:space="preserve">
+    <value>Por Registro</value>
+  </data>
+  <data name="SearchResultsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Resultados da Pesquisa</value>
+  </data>
+  <data name="FindNextToolStripMenuItem.Text" xml:space="preserve">
+    <value>Localizar Próximo</value>
+  </data>
+  <data name="ShareToolStripMenuItem.Text" xml:space="preserve">
+    <value>Compartilhar</value>
+  </data>
+  <data name="ImportSemanticPolicyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Importar Política Semântica</value>
+  </data>
+  <data name="ImportPOLToolStripMenuItem.Text" xml:space="preserve">
+    <value>Importar POL</value>
+  </data>
+  <data name="ImportREGToolStripMenuItem.Text" xml:space="preserve">
+    <value>Importar REG</value>
+  </data>
+  <data name="ExportPOLToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exportar POL</value>
+  </data>
+  <data name="ExportREGToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exportar REG</value>
+  </data>
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ajuda</value>
+  </data>
+  <data name="AboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="AcquireADMXFilesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Adquirir Arquivos ADMX</value>
+  </data>
+  <data name="ChSettingName.Text" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="ChSettingEnabled.Text" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="ChSettingCommented.Text" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="CmeCatOpen.Text" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
+  <data name="CmePolEdit.Text" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="CmeAllDetails.Text" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="CmePolInspectElements.Text" xml:space="preserve">
+    <value>Inspetor de Elementos</value>
+  </data>
+  <data name="CmePolSpolFragment.Text" xml:space="preserve">
+    <value>Fragmento de Política Semântica</value>
+  </data>
+  <data name="PolicyTitleLabel.Text" xml:space="preserve">
+    <value>Título da política</value>
+  </data>
+  <data name="PolicySupportedLabel.Text" xml:space="preserve">
+    <value>Requisitos</value>
+  </data>
+  <data name="PolicyDescLabel.Text" xml:space="preserve">
+    <value>Descrição da política</value>
+  </data>
+  <data name="ToolStripStatusLabel1.Text" xml:space="preserve">
+    <value>Origem do computador:</value>
+  </data>
+  <data name="ComputerSourceLabel.Text" xml:space="preserve">
+    <value>Informações do computador</value>
+  </data>
+  <data name="ToolStripStatusLabel2.Text" xml:space="preserve">
+    <value>Origem do usuário:</value>
+  </data>
+  <data name="UserSourceLabel.Text" xml:space="preserve">
+    <value>Informações do usuário</value>
+  </data>
+  <data name="PolicyIsPrefLabel.Text" xml:space="preserve">
+    <value>Como não está armazenada em uma seção de Políticas do Registro, esta política é uma preferência e não será automaticamente desfeita se a configuração for removida.</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Policy Plus</value>
+  </data>
+  <data name="ComboAppliesTo.Items" xml:space="preserve">
+    <value>Usuário ou Computador</value>
+  </data>
+  <data name="ComboAppliesTo.Items1" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="ComboAppliesTo.Items2" xml:space="preserve">
+    <value>Computador</value>
+  </data>
+</root>

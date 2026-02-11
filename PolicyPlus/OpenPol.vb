@@ -1,4 +1,4 @@
-﻿Public Class OpenPol
+Public Class OpenPol
     Public SelectedUser, SelectedComputer As PolicyLoader
     Public Sub SetLastSources(ComputerType As PolicyLoaderSource, ComputerData As String, UserType As PolicyLoaderSource, UserData As String)
         ' Set up the UI to show the given configuration
@@ -86,7 +86,7 @@
                 SelectedComputer = New PolicyLoader(PolicyLoaderSource.Null, "", False)
             End If
         Catch ex As Exception
-            MsgBox("The computer policy loader could not be created. " & ex.Message, MsgBoxStyle.Exclamation)
+            MsgBox("O carregador de politica do computador nao pode ser criado. " & ex.Message, MsgBoxStyle.Exclamation)
             Exit Sub
         End Try
         Try
@@ -104,7 +104,7 @@
                 SelectedUser = New PolicyLoader(PolicyLoaderSource.Null, "", True)
             End If
         Catch ex As Exception
-            MsgBox("The user policy loader could not be created. " & ex.Message, MsgBoxStyle.Exclamation)
+            MsgBox("O carregador de politica do usuario nao pode ser criado. " & ex.Message, MsgBoxStyle.Exclamation)
             Exit Sub
         End Try
         DialogResult = DialogResult.OK
