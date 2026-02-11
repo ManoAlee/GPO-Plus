@@ -16,6 +16,7 @@ Public Class GpoBackupManager
             Throw New DirectoryNotFoundException("Caminho do GPO não encontrado: " & gpo.FileSystemPath)
         End If
         CopyDirectory(gpo.FileSystemPath, dest)
+        GpoAuditLogger.Log("BACKUP", $"GPO='{gpo.DisplayName}' GUID='{gpo.Guid}' Domain='{gpo.Domain}' -> '{dest}'")
         Return dest
     End Function
 
@@ -36,6 +37,7 @@ Public Class GpoBackupManager
             File.Copy(srcFile, destFile, True)
         Next
         Directory.Delete(tmp, True)
+        GpoAuditLogger.Log("RESTORE", $"Backup='{backupPath}' -> Target='{targetGpoPath}'")
     End Sub
 
     Public Shared Function ListBackups(gpo As GpoInfo) As List(Of String)

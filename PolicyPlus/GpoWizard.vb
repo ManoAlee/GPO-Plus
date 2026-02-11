@@ -17,6 +17,7 @@ Public Class GpoWizard
     Private BtnExportReport As Button
     Private BtnOpenSysvol As Button
     Private BtnOpenBackups As Button
+    Private BtnOpenLogs As Button
     Private BtnClose As Button
     Private LblStatus As Label
     Private BgWorker As BackgroundWorker
@@ -45,9 +46,10 @@ Public Class GpoWizard
         BtnOpenSysvol = New Button() With {.Left = 500, .Top = 350, .Width = 180, .Text = "Abrir pasta SYSVOL", .Enabled = False}
 
         BtnOpenBackups = New Button() With {.Left = 10, .Top = 350, .Width = 320, .Text = "Abrir pasta de Backups", .Enabled = True}
+        BtnOpenLogs = New Button() With {.Left = 10, .Top = 380, .Width = 320, .Text = "Abrir logs/auditoria", .Enabled = True}
         BtnClose = New Button() With {.Left = 580, .Top = 360, .Width = 100, .Text = "Fechar"}
 
-        Me.Controls.AddRange(New Control() {TxtDomain, BtnRefresh, LblStatus, LstGpos, TxtPath, TxtDetails, BtnBackup, BtnRestore, BtnValidate, BtnExportReport, BtnOpenSysvol, BtnOpenBackups, BtnClose})
+        Me.Controls.AddRange(New Control() {TxtDomain, BtnRefresh, LblStatus, LstGpos, TxtPath, TxtDetails, BtnBackup, BtnRestore, BtnValidate, BtnExportReport, BtnOpenSysvol, BtnOpenBackups, BtnOpenLogs, BtnClose})
 
         BgWorker = New BackgroundWorker()
         BgWorker.WorkerSupportsCancellation = False
@@ -62,6 +64,7 @@ Public Class GpoWizard
         AddHandler BtnExportReport.Click, AddressOf BtnExportReport_Click
         AddHandler BtnOpenSysvol.Click, AddressOf BtnOpenSysvol_Click
         AddHandler BtnOpenBackups.Click, AddressOf BtnOpenBackups_Click
+        AddHandler BtnOpenLogs.Click, AddressOf BtnOpenLogs_Click
         AddHandler BtnClose.Click, Sub(s, e) Me.Close()
 
         TxtDomain.Text = AdGpoManager.GetCurrentDomain()
@@ -132,6 +135,7 @@ Public Class GpoWizard
         Dim g = DirectCast(LstGpos.SelectedItem, GpoInfo)
         Try
             Dim path = GpoBackupManager.BackupGpo(g)
+            GpoAuditLogger.Log("UI", $"Backup acionado para GPO='{g.DisplayName}'")
             MessageBox.Show("Backup criado em: " & path, "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information)
             BtnRestore.Enabled = True
         Catch ex As Exception
@@ -151,6 +155,7 @@ Public Class GpoWizard
             If dlg.ShowDialog() = DialogResult.OK Then
                 Try
                     GpoBackupManager.RestoreGpoFromBackup(dlg.SelectedBackup, g.FileSystemPath)
+                    GpoAuditLogger.Log("UI", $"Restauração acionada para GPO='{g.DisplayName}' Backup='{dlg.SelectedBackup}'")
                     MessageBox.Show("Restaurado com sucesso.", "Restaurar", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As Exception
                     MessageBox.Show("Falha ao restaurar: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -211,6 +216,7 @@ Public Class GpoWizard
         If computers.Count > 200 Then sb.AppendLine("... (mais " & (computers.Count - 200) & ")")
 
         TxtDetails.Text = sb.ToString()
+        GpoAuditLogger.Log("VALIDATE", $"GPO='{g.DisplayName}' GUID='{g.Guid}' Links={links.Count} Computers={computers.Count} Issues={issues.Count}")
         MessageBox.Show("Validação concluída. Veja os detalhes no painel à direita.", "Validador de GPO", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
@@ -227,6 +233,7 @@ Public Class GpoWizard
                     content = ConvertReportToCsv(content)
                 End If
                 IO.File.WriteAllText(sfd.FileName, content, Encoding.UTF8)
+                GpoAuditLogger.Log("EXPORT", $"GPO='{g.DisplayName}' -> '{sfd.FileName}'")
                 MessageBox.Show("Relatório exportado com sucesso.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Catch ex As Exception
                 MessageBox.Show("Falha ao exportar relatório: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -252,6 +259,15 @@ Public Class GpoWizard
             Process.Start("explorer.exe", root)
         Catch ex As Exception
             MessageBox.Show("Falha ao abrir pasta de backups: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub BtnOpenLogs_Click(sender As Object, e As EventArgs)
+        Try
+            Dim root = GpoAuditLogger.GetLogRoot()
+            Process.Start("explorer.exe", root)
+        Catch ex As Exception
+            MessageBox.Show("Falha ao abrir logs: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
