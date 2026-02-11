@@ -41,6 +41,7 @@ Partial Class Main
         Me.SetADMLLanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseADMXWorkspaceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenDomainGpoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GpoWizardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenPolicyResourcesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SavePoliciesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditRawPOLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -179,7 +180,7 @@ Partial Class Main
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenADMXFolderToolStripMenuItem, Me.OpenADMXFileToolStripMenuItem, Me.SetADMLLanguageToolStripMenuItem, Me.CloseADMXWorkspaceToolStripMenuItem, ToolStripSeparator2, Me.OpenDomainGpoToolStripMenuItem, Me.OpenPolicyResourcesToolStripMenuItem, Me.SavePoliciesToolStripMenuItem, Me.EditRawPOLToolStripMenuItem, ToolStripSeparator3, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenADMXFolderToolStripMenuItem, Me.OpenADMXFileToolStripMenuItem, Me.SetADMLLanguageToolStripMenuItem, Me.CloseADMXWorkspaceToolStripMenuItem, ToolStripSeparator2, Me.OpenDomainGpoToolStripMenuItem, Me.GpoWizardToolStripMenuItem, Me.OpenPolicyResourcesToolStripMenuItem, Me.SavePoliciesToolStripMenuItem, Me.EditRawPOLToolStripMenuItem, ToolStripSeparator3, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "Arquivo"
@@ -214,6 +215,14 @@ Partial Class Main
         Me.OpenDomainGpoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
         Me.OpenDomainGpoToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.OpenDomainGpoToolStripMenuItem.Text = "Abrir GPO do Domínio"
+
+        '
+        'GpoWizardToolStripMenuItem
+        '
+        Me.GpoWizardToolStripMenuItem.Name = "GpoWizardToolStripMenuItem"
+        Me.GpoWizardToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
+        Me.GpoWizardToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.GpoWizardToolStripMenuItem.Text = "Assistente de GPOs do Domínio"
         '
         'OpenPolicyResourcesToolStripMenuItem
         '
@@ -717,6 +726,7 @@ Partial Class Main
     Friend WithEvents OpenADMXFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseADMXWorkspaceToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenDomainGpoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GpoWizardToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitContainer As SplitContainer
     Friend WithEvents CategoriesTree As TreeView

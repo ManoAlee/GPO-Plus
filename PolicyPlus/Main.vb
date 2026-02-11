@@ -62,6 +62,13 @@ Public Class Main
             End If
         End If
     End Sub
+
+    Private Sub GpoWizardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GpoWizardToolStripMenuItem.Click
+        ' Assistente com operações amigáveis (backup/restauração) para GPOs do domínio
+        Using wiz As New GpoWizard()
+            wiz.ShowDialog(Me)
+        End Using
+    End Sub
     Sub OpenLastAdmxSource()
         Dim defaultAdmxSource = Environment.ExpandEnvironmentVariables("%windir%\PolicyDefinitions")
         Dim admxSource As String = Configuration.GetValue("AdmxSource", defaultAdmxSource)
@@ -660,17 +667,17 @@ Public Class Main
         saveComments(UserComments, UserPolicyLoader)
         saveComments(CompComments, CompPolicyLoader)
         Try
-                 Dim compStatus = "não editável"
-                Dim userStatus = "não editável"
-                If CompPolicyLoader.GetWritability = PolicySourceWritability.Writable Then compStatus = CompPolicyLoader.Save
-                If UserPolicyLoader.GetWritability = PolicySourceWritability.Writable Then userStatus = UserPolicyLoader.Save
-                Configuration.SetValue("CompSourceType", CInt(CompPolicyLoader.Source))
-                Configuration.SetValue("UserSourceType", CInt(UserPolicyLoader.Source))
-                Configuration.SetValue("CompSourceData", If(CompPolicyLoader.LoaderData, ""))
-                Configuration.SetValue("UserSourceData", If(UserPolicyLoader.LoaderData, ""))
-                MsgBox("Sucesso." & vbCrLf & vbCrLf & "Políticas de usuário: " & userStatus & "." & vbCrLf & vbCrLf & "Políticas de computador: " & compStatus & ".", MsgBoxStyle.Information)
-            Catch ex As Exception
-                MsgBox("Falha ao salvar!" & vbCrLf & vbCrLf & ex.Message, MsgBoxStyle.Exclamation)
+            Dim compStatus = "não editável"
+            Dim userStatus = "não editável"
+            If CompPolicyLoader.GetWritability = PolicySourceWritability.Writable Then compStatus = CompPolicyLoader.Save
+            If UserPolicyLoader.GetWritability = PolicySourceWritability.Writable Then userStatus = UserPolicyLoader.Save
+            Configuration.SetValue("CompSourceType", CInt(CompPolicyLoader.Source))
+            Configuration.SetValue("UserSourceType", CInt(UserPolicyLoader.Source))
+            Configuration.SetValue("CompSourceData", If(CompPolicyLoader.LoaderData, ""))
+            Configuration.SetValue("UserSourceData", If(UserPolicyLoader.LoaderData, ""))
+            MsgBox("Sucesso." & vbCrLf & vbCrLf & "Políticas de usuário: " & userStatus & "." & vbCrLf & vbCrLf & "Políticas de computador: " & compStatus & ".", MsgBoxStyle.Information)
+        Catch ex As Exception
+            MsgBox("Falha ao salvar!" & vbCrLf & vbCrLf & ex.Message, MsgBoxStyle.Exclamation)
         End Try
     End Sub
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
